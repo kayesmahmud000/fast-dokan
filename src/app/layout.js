@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import Navbar from '@/components/custom/Navbar';
 import './globals.css';
 import Footer from '@/components/custom/Footer';
+import MobileBottomMenu from '@/components/common/MobileBottomMenu';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -28,6 +29,9 @@ export default function RootLayout({ children }) {
         <Navbar />
         {children}
         <Footer />
+        <div className="md:hidden">
+          <MobileBottomMenu />
+        </div>
       </body>
     </html>
   );
