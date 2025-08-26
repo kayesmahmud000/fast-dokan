@@ -12,7 +12,7 @@ import Image from 'next/image';
 const EmblaCarousel = ({ slides, options }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, ...options }, [
     AutoScroll({
-      playOnInit: true, // ✅ autoplay starts automatically
+      playOnInit: true,
       stopOnInteraction: false, // keeps running even if user drags
       speed: 2, // adjust speed (lower = slower, higher = faster)
     }),
