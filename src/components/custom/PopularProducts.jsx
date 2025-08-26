@@ -1,58 +1,65 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import Image from 'next/image';
 
-const NewArrivals = () => {
-  const newProducts = [
+/**
+ * A React component that displays a list of products using a JSX loop.
+ * The component is styled with Tailwind CSS to match the original image.
+ */
+const PopularProducts = () => {
+  // Hardcoded product data extracted from the user-provided image.
+  // This array will be used to dynamically generate the product cards.
+  const popularProducts = [
     {
       product_name: 'Amazfit Bip 5 Smartwatch',
-      image_url: '/images/productcategory/camra.png',
-      rating: 4.9,
-      discount_percentage: 15,
-      old_price: '৳ 1399',
-      new_price: '৳ 1199',
+      image_url: '/images/popularproducts/green_jacket.png',
+      rating: 4.7,
+      discount_percentage: 18,
+      old_price: '৳ 1099',
+      new_price: '৳ 899',
     },
     {
       product_name: 'Logitech MX Anywhere 3 Mouse',
-      image_url: '/images/productcategory/console2.png',
-      rating: 4.9,
-      discount_percentage: 15,
-      old_price: '৳ 1399',
-      new_price: '৳ 1199',
+      image_url: '/images/popularproducts/pink_jacket.png',
+      rating: 4.8,
+      discount_percentage: 13,
+      old_price: '৳ 1499',
+      new_price: '৳ 1299',
     },
     {
       product_name: 'IMILAB C20 Security Camera',
-      image_url: '/images/productcategory/chair.png',
+      image_url: '/images/popularproducts/cleats.png',
       rating: 4.9,
-      discount_percentage: 15,
-      old_price: '৳ 1399',
-      new_price: '৳ 1199',
+      discount_percentage: 11,
+      old_price: '৳ 1799',
+      new_price: '৳ 1599',
     },
     {
       product_name: 'Haylou X1 Neo TWS Earbuds',
-      image_url: '/images/productcategory/car.png',
-      rating: 4.9,
-      discount_percentage: 15,
-      old_price: '৳ 1399',
-      new_price: '৳ 1199',
-    },
-    {
-      product_name: 'Apple AirPods Pro 2',
-      image_url: '/images/productcategory/camra.png',
-      rating: 4.8,
-      discount_percentage: 15,
-      old_price: '৳ 2299',
+      image_url: '/images/popularproducts/handbag.png',
+      rating: 5,
+      discount_percentage: 9,
+      old_price: '৳ 2199',
       new_price: '৳ 1999',
     },
     {
-      product_name: 'Samsung Galaxy Watch 6',
-      image_url: '/images/productcategory/console2.png',
+      product_name: 'Amazfit Bip 5 Smartwatch',
+      image_url: '/images/popularproducts/green_jacket.png',
       rating: 4.7,
-      discount_percentage: 15,
-      old_price: '৳ 1899',
-      new_price: '৳ 1599',
+      discount_percentage: 18,
+      old_price: '৳ 1099',
+      new_price: '৳ 899',
+    },
+    {
+      product_name: 'Logitech MX Anywhere 3 Mouse',
+      image_url: '/images/popularproducts/pink_jacket.png',
+      rating: 4.8,
+      discount_percentage: 13,
+      old_price: '৳ 1499',
+      new_price: '৳ 1299',
     },
   ];
+
   return (
     <section className="py-15">
       <div className="baseContainer flex flex-col gap-1 md:gap-2">
@@ -63,21 +70,24 @@ const NewArrivals = () => {
               Fresh picks — just landed in our store.
             </p>
           </div>
+          {/* Note: The 'Link' component was replaced with a standard 'a' tag for compatibility. */}
           <a href={'#'} className="underline text-blue-500 hover:text-blue-600">
             View All
           </a>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-          {newProducts.map((product) => (
+          {popularProducts.map((product) => (
             <Link
               href={''}
               key={product.product_name}
               className="relative bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col p-2 border-blue-500 border"
             >
+              {/* Discount badge */}
               <div className="absolute top-4 right-4 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md">
                 {product.discount_percentage}%
               </div>
 
+              {/* Like button */}
               <div className="absolute top-4 left-4 text-gray-400 hover:text-red-500 transition-colors duration-300 cursor-pointer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -95,6 +105,7 @@ const NewArrivals = () => {
                 </svg>
               </div>
 
+              {/* Product Image */}
               <div className="flex-shrink-0 flex items-center justify-center pt-4 pb-8">
                 <Image
                   src={product.image_url}
@@ -105,6 +116,7 @@ const NewArrivals = () => {
                 />
               </div>
 
+              {/* Product Details */}
               <div className="flex flex-col md:flex-row flex-grow">
                 <h3 className="text-[.7rem] font-semibold text-gray-800 mb-1">
                   {product.product_name}
@@ -117,6 +129,7 @@ const NewArrivals = () => {
                 </div>
               </div>
 
+              {/* Price and Cart button */}
               <div className="flex items-center justify-between mt-auto pt-2">
                 <div>
                   <p className="text-xs text-gray-500 line-through">
@@ -151,4 +164,4 @@ const NewArrivals = () => {
   );
 };
 
-export default NewArrivals;
+export default PopularProducts;
