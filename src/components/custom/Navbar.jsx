@@ -8,8 +8,7 @@ import Link from 'next/link';
 
 const Navbar = () => {
   const [isUserClicked, setIsUserClicked] = React.useState(false);
-
-  // const lan
+  const [selecetedLanguage, setSelecetedLanguage] = React.useState('bangla');
 
   return (
     <nav className="py-2 shadow-md">
