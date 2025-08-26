@@ -41,10 +41,10 @@ const EmblaCarousel = ({ slides, options }) => {
       {/* Viewport */}
       <div className="embla__viewport overflow-hidden" ref={emblaRef}>
         <div className="embla__container flex">
-          {slides.map((_, index) => (
+          {slides.map((e, index) => (
             <div
               className="embla__slide flex-[0_0_80%] sm:flex-[0_0_40%] lg:flex-[0_0_25%] px-2"
-              key={index}
+              key={index + 2}
             >
               <div className="bg-white rounded-xl shadow-md h-40 flex items-center justify-center text-2xl font-bold text-gray-700">
                 {index + 1}

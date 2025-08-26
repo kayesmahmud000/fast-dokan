@@ -22,28 +22,28 @@ const Footer = () => {
             <div className="flex space-x-4">
               <Link
                 href="#"
-                ariaLabel="Twitter"
+                aria-label="Twitter"
                 className="hover:text-white transition-colors duration-300"
               >
                 <FaTwitter className="size-5" />
               </Link>
               <Link
                 href="#"
-                ariaLabel="Facebook"
+                aria-label="Facebook"
                 className="hover:text-white transition-colors duration-300"
               >
                 <FaFacebook className="size-5" />
               </Link>
               <Link
                 href="#"
-                ariaLabel="Instagram"
+                aria-label="Instagram"
                 className="hover:text-white transition-colors duration-300"
               >
                 <FaInstagram className="size-5" />
               </Link>
               <Link
                 href="#"
-                ariaLabel="LinkedIn"
+                aria-label="LinkedIn"
                 className="hover:text-white transition-colors duration-300"
               >
                 <FaLinkedin className="size-5" />

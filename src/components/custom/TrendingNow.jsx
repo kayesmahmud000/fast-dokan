@@ -70,10 +70,10 @@ const TrendingProducts = () => {
           </a>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-          {trendingProducts.map((product) => (
+          {trendingProducts.map((product, i) => (
             <Link
               href={''}
-              key={product.image_url}
+              key={`trendingnow${i + 12}`}
               className="relative bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col p-2 border-blue-500 border"
             >
               {/* Discount badge */}
