@@ -5,48 +5,48 @@ import EmblaCarousel from '../common/EmblaCarousel';
 const ProductCategory = () => {
   const products = [
     {
-      name: 'camra.png',
-      src: '/images/productcategory/camra',
+      name: 'camra',
+      src: '/images/productcategory/camra.png',
       items: 8,
     },
     {
-      name: 'car.png',
-      src: '/images/productcategory/car',
+      name: 'car',
+      src: '/images/productcategory/car.png',
       items: 7,
     },
     {
-      name: 'chair.png',
-      src: '/images/productcategory/chair',
+      name: 'chair',
+      src: '/images/productcategory/chair.png',
       items: 3,
     },
     {
-      name: 'console.png',
-      src: '/images/productcategory/console',
+      name: 'console',
+      src: '/images/productcategory/console.png',
       items: 7,
     },
     {
-      name: 'console2.png',
-      src: '/images/productcategory/console2',
+      name: 'console2',
+      src: '/images/productcategory/console2.png',
       items: 9,
     },
     {
-      name: 'graphic_card.png',
-      src: '/images/productcategory/graphic_card',
+      name: 'graphic_card',
+      src: '/images/productcategory/graphic_card.png',
       items: 3,
     },
     {
-      name: 'keyboard.png',
-      src: '/images/productcategory/keyboard',
+      name: 'keyboard',
+      src: '/images/productcategory/keyboard.png',
       items: 4,
     },
     {
-      name: 'laptpo.png',
-      src: '/images/productcategory/laptpo',
+      name: 'laptop',
+      src: '/images/productcategory/laptpo.png',
       items: 7,
     },
     {
-      name: 'monitor.png',
-      src: '/images/productcategory/monitor',
+      name: 'monitor',
+      src: '/images/productcategory/monitor.png',
       items: 10,
     },
   ];

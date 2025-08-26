@@ -7,6 +7,7 @@ import {
   PrevButton,
   usePrevNextButtons,
 } from './EmblaCarouselArrowButtons';
+import Image from 'next/image';
 
 const EmblaCarousel = ({ slides, options }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, ...options }, [
@@ -43,11 +44,20 @@ const EmblaCarousel = ({ slides, options }) => {
         <div className="embla__container flex">
           {slides.map((e, index) => (
             <div
-              className="embla__slide flex-[0_0_80%] sm:flex-[0_0_40%] lg:flex-[0_0_25%] px-2"
+              className="embla__slide flex-[0_0_80%] sm:flex-[0_0_40%] lg:flex-[0_0_25%] px-2 p-4"
               key={index + 2}
             >
-              <div className="bg-white rounded-xl shadow-md h-40 flex items-center justify-center text-2xl font-bold text-gray-700">
-                {index + 1}
+              <div className=" bg-white rounded-xl border-blue-500 border h-40 flex-col flex items-center justify-center">
+                <div className="w-30 h-30 relative">
+                  <Image
+                    src={e.src}
+                    alt="image"
+                    fill
+                    style={{ objectFit: 'contain' }}
+                  />
+                </div>
+                <h5>{e.name}</h5>
+                <h5 className="text-blue-500">{e.items} items</h5>
               </div>
             </div>
           ))}
