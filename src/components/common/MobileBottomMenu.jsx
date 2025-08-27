@@ -15,7 +15,9 @@ export default function MobileBottomMenu() {
       onClick={onClick}
     >
       <div className="w-6 h-6 mb-1">{icon}</div>
-      <span className="text-xs font-semibold select-none">{name}</span>
+      <span className="text-xs font-semibold select-none text-blue-500">
+        {name}
+      </span>
     </div>
   );
 
@@ -24,7 +26,7 @@ export default function MobileBottomMenu() {
       {/* Example content to demonstrate the nav bar's fixed position */}
 
       {/* The main navigation bar container */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 bg-white shadow-xl ">
+      <div className="fixed bottom-0 left-0 right-0 z-30 bg-white shadow-xl ">
         <div className="relative flex items-center justify-around h-20 px-4">
           {/* Home Nav Item */}
           <NavItem
