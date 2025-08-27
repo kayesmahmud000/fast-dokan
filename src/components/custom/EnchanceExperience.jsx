@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 const EnchanceExperience = () => {
   return (
@@ -28,7 +28,7 @@ const EnchanceExperience = () => {
             </div>
           </div>
           <Link
-            href={''}
+            href={""}
             className="text-white py-1.5 rounded px-4 bg-green-500 w-fit"
           >
             Buy Now!
@@ -36,13 +36,13 @@ const EnchanceExperience = () => {
         </div>
         <div className="flex items-end justify-center pt-4 pb-8 md:w-4/5">
           <Image
-            src={'/images/enchance/box.png'}
-            alt={'sound box'}
+            src={"/images/enchance/box.png"}
+            alt={"sound box"}
             width={0}
             height={0}
             sizes="100vw"
-            style={{ width: '100vw', height: 'auto' }}
-            className="w-full h-28 object-contain"
+            style={{ width: "100vw", height: "auto" }}
+            className="w-full h-28 object-contain shadow-2xl"
           />
         </div>
       </div>

@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import React from 'react';
+import Image from "next/image";
+import React from "react";
 
 const Hero = () => {
   return (
@@ -11,7 +11,7 @@ const Hero = () => {
               src="/images/hero/hero_watch.jpg"
               alt="Hero Watch"
               fill
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: "cover" }}
               className=" rounded-lg"
             />
           </div>
@@ -20,7 +20,7 @@ const Hero = () => {
               src="/images/hero/hero_black_friday.jpg"
               alt="Hero Watch"
               fill
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: "cover" }}
               className=" rounded-lg"
             />
           </div>
@@ -31,7 +31,7 @@ const Hero = () => {
               src="/images/hero/hero_ear_bud.jpg"
               alt="Hero Watch"
               fill
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: "cover" }}
               className=" rounded-lg"
             />
           </div>
@@ -40,12 +40,12 @@ const Hero = () => {
               src="/images/hero/hero_headphone.jpg"
               alt="Hero Watch"
               fill
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: "cover" }}
               className=" rounded-lg "
             />
           </div>
         </div>
-        <div className="grid md:grid-cols-4 gap-2 py-5">
+        <div className="grid md:grid-cols-4 grid-cols-2 gap-2 py-5">
           <div className="bg-blue-100/60 flex justify-center items-center py-5 px-2 gap-2 rounded-lg">
             <div className="p-3 bg-white w-fit rounded-full">
               <svg

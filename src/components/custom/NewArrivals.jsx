@@ -1,76 +1,76 @@
-import Link from 'next/link';
-import React from 'react';
-import Image from 'next/image';
+import Link from "next/link";
+import React from "react";
+import Image from "next/image";
 
 const NewArrivals = () => {
   const newProducts = [
     {
-      product_name: 'Amazfit Bip 5 Smartwatch',
-      image_url: '/images/productcategory/camra.png',
+      product_name: "Amazfit Bip 5 Smartwatch",
+      image_url: "/images/productcategory/camra.png",
       rating: 4.9,
       discount_percentage: 15,
-      old_price: '৳ 1399',
-      new_price: '৳ 1199',
+      old_price: "৳ 1399",
+      new_price: "৳ 1199",
     },
     {
-      product_name: 'Logitech MX Anywhere 3 Mouse',
-      image_url: '/images/productcategory/console2.png',
+      product_name: "Logitech MX Anywhere 3 Mouse",
+      image_url: "/images/productcategory/console2.png",
       rating: 4.9,
       discount_percentage: 15,
-      old_price: '৳ 1399',
-      new_price: '৳ 1199',
+      old_price: "৳ 1399",
+      new_price: "৳ 1199",
     },
     {
-      product_name: 'IMILAB C20 Security Camera',
-      image_url: '/images/productcategory/chair.png',
+      product_name: "IMILAB C20 Security Camera",
+      image_url: "/images/productcategory/chair.png",
       rating: 4.9,
       discount_percentage: 15,
-      old_price: '৳ 1399',
-      new_price: '৳ 1199',
+      old_price: "৳ 1399",
+      new_price: "৳ 1199",
     },
     {
-      product_name: 'Haylou X1 Neo TWS Earbuds',
-      image_url: '/images/productcategory/car.png',
+      product_name: "Haylou X1 Neo TWS Earbuds",
+      image_url: "/images/productcategory/car.png",
       rating: 4.9,
       discount_percentage: 15,
-      old_price: '৳ 1399',
-      new_price: '৳ 1199',
+      old_price: "৳ 1399",
+      new_price: "৳ 1199",
     },
     {
-      product_name: 'Apple AirPods Pro 2',
-      image_url: '/images/productcategory/camra.png',
+      product_name: "Apple AirPods Pro 2",
+      image_url: "/images/productcategory/camra.png",
       rating: 4.8,
       discount_percentage: 15,
-      old_price: '৳ 2299',
-      new_price: '৳ 1999',
+      old_price: "৳ 2299",
+      new_price: "৳ 1999",
     },
     {
-      product_name: 'Samsung Galaxy Watch 6',
-      image_url: '/images/productcategory/console2.png',
+      product_name: "Samsung Galaxy Watch 6",
+      image_url: "/images/productcategory/console2.png",
       rating: 4.7,
       discount_percentage: 15,
-      old_price: '৳ 1899',
-      new_price: '৳ 1599',
+      old_price: "৳ 1899",
+      new_price: "৳ 1599",
     },
   ];
   return (
     <section className="py-15">
       <div className="baseContainer flex flex-col gap-1 md:gap-2">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-2">
+        <div className="flex items-center justify-between py-2">
           <div className="flex flex-col">
             <h2 className="text-xl md:text-2xl font-bold">New Arrivals</h2>
             <p className="font-light text-sm">
               Fresh picks — just landed in our store.
             </p>
           </div>
-          <a href={'#'} className="underline text-blue-500 hover:text-blue-600">
+          <a href={"#"} className=" text-blue-500 hover:text-blue-600">
             View All
           </a>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
           {newProducts.map((product) => (
             <Link
-              href={''}
+              href={""}
               key={product.product_name}
               className="relative bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col p-2 border-blue-500 border"
             >
