@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 import {
   LayoutGrid,
   ChevronDown,
@@ -12,18 +12,19 @@ import {
   Search,
   Phone,
   User,
-} from "lucide-react";
-import { IoSearch } from "react-icons/io5";
-import { FaPhoneAlt } from "react-icons/fa";
-import Image from "next/image";
-import { FaApple, FaAndroid } from "react-icons/fa"; // Example icons
+} from 'lucide-react';
+import { IoSearch } from 'react-icons/io5';
+import { FaPhoneAlt } from 'react-icons/fa';
+import Image from 'next/image';
+import { FaApple, FaAndroid } from 'react-icons/fa'; // Example icons
+import Link from 'next/link';
 
 export default function Navbar() {
   const [isUserClicked, setIsUserClicked] = useState(false);
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState("bangla");
+  const [currentLanguage, setCurrentLanguage] = useState('bangla');
 
   const [click, setClick] = useState(false);
   // Close all dropdowns when the mobile menu is opened
@@ -39,7 +40,7 @@ export default function Navbar() {
 
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const [language, setLanguage] = useState("en");
+  const [language, setLanguage] = useState('en');
 
   const handleSelectLanguage = (lang) => {
     setLanguage(lang);
@@ -47,11 +48,11 @@ export default function Navbar() {
   };
 
   const selectedLanguage = {
-    label: language === "en" ? "English" : "বাংলা",
+    label: language === 'en' ? 'English' : 'বাংলা',
     imgSrc:
-      language === "en"
-        ? "/images/navbar/english.png"
-        : "/images/navbar/bangla.jpg",
+      language === 'en'
+        ? '/images/navbar/english.png'
+        : '/images/navbar/bangla.jpg',
   };
 
   return (
@@ -63,15 +64,15 @@ export default function Navbar() {
             {/* Logo and Search */}
             <div className="flex items-center gap-4 flex-1">
               {/* logo for mobile and desktop  */}
-              <a href="/" data-discover="true">
+              <Link href="/" data-discover="true">
                 <Image
                   src="/images/navbar/logo.png"
                   alt="logo"
                   width={60}
                   height={60}
-                  classNameName=""
+                  className=""
                 ></Image>
-              </a>
+              </Link>
 
               {/* Search Bar - Desktop */}
               <div className="hidden sm:flex flex-1 max-w-full sm:max-w-xl relative">
@@ -117,30 +118,30 @@ export default function Navbar() {
 
               {/* Wishlist Icon - Mobile */}
               <div className="sm:hidden ">
-                <a
-                  class="flex flex-col items-center gap-0.5 px-2 py-1 text-blue-500 rounded hover:text-blue-600 relative"
+                <Link
+                  className="flex flex-col items-center gap-0.5 px-2 py-1 text-blue-500 rounded hover:text-blue-600 relative"
                   href="/wishlist"
                   data-discover="true"
                 >
-                  <div class="relative">
+                  <div className="relative">
                     <svg
                       stroke="currentColor"
                       fill="currentColor"
-                      stroke-width="0"
+                      strokeWidth="0"
                       viewBox="0 0 512 512"
-                      class="text-xl"
+                      className="text-xl"
                       height="1em"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
                     </svg>
-                    <span class="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
+                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
                       0
                     </span>
                   </div>
-                  <span class="text-xs">Wishlist</span>
-                </a>
+                  <span className="text-xs">Wishlist</span>
+                </Link>
               </div>
 
               {/* Login Icon */}
@@ -149,9 +150,9 @@ export default function Navbar() {
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
-                    stroke-width="0"
+                    strokeWidth="0"
                     viewBox="0 0 448 512"
-                    class="text-xl"
+                    className="text-xl"
                     height="1em"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -189,9 +190,9 @@ export default function Navbar() {
                     <svg
                       stroke="currentColor"
                       fill="currentColor"
-                      stroke-width="0"
+                      strokeWidth="0"
                       viewBox="0 0 320 512"
-                      class="transition-transform rotate-180"
+                      className="transition-transform rotate-180"
                       height="1em"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -202,9 +203,9 @@ export default function Navbar() {
                     <svg
                       stroke="currentColor"
                       fill="currentColor"
-                      stroke-width="0"
+                      strokeWidth="0"
                       viewBox="0 0 320 512"
-                      class="transition-transform "
+                      className="transition-transform "
                       height="1em"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -215,7 +216,7 @@ export default function Navbar() {
                 </button>
                 <div
                   className={`${
-                    click ? "flex" : "hidden"
+                    click ? 'flex' : 'hidden'
                   } absolute bg-white shadow-md rounded-md mt-2 w-64 z-50 max-h-80 overflow-y-auto`}
                 >
                   <ul className="flex flex-col text-sm text-blue-500">
@@ -285,13 +286,13 @@ export default function Navbar() {
                     <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
                       Glass
                     </li>
-                    <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                    <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
                       Housing
                     </li>
-                    <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                    <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
                       Land Development
                     </li>
-                    <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                    <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
                       Expatriate Network
                     </li>
                   </ul>
@@ -300,41 +301,41 @@ export default function Navbar() {
 
               {/* Menu Links */}
               <div className="hidden md:flex items-center gap-6 ml-8">
-                <a
+                <Link
                   href="/"
                   className="text-blue-500 font-semibold"
                   data-discover="true"
                 >
                   Home
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/campaign"
                   className="text-blue-500 hover:text-blue-600"
                   data-discover="true"
                 >
                   Campaign
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/trending"
                   className="text-blue-500 hover:text-blue-600"
                   data-discover="true"
                 >
                   Trending
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/brands"
                   className="text-blue-500 hover:text-blue-600"
                   data-discover="true"
                 >
                   Brands
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/outlets"
                   className="text-blue-500 hover:text-blue-600"
                   data-discover="true"
                 >
                   Outlets
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -373,9 +374,9 @@ export default function Navbar() {
                 {/* Dropdown Options */}
                 {showDropdown && (
                   <div className="absolute z-10 mt-2 w-40 bg-white text-black shadow-md rounded-md">
-                    {language !== "en" && (
+                    {language !== 'en' && (
                       <button
-                        onClick={() => handleSelectLanguage("en")}
+                        onClick={() => handleSelectLanguage('en')}
                         className="flex items-center gap-2 w-full px-4 py-2 text-left hover:bg-gray-100"
                       >
                         <Image
@@ -388,9 +389,9 @@ export default function Navbar() {
                         <span>English</span>
                       </button>
                     )}
-                    {language !== "bn" && (
+                    {language !== 'bn' && (
                       <button
-                        onClick={() => handleSelectLanguage("bn")}
+                        onClick={() => handleSelectLanguage('bn')}
                         className="flex items-center gap-2 w-full px-4 py-2 text-left hover:bg-gray-100"
                       >
                         <Image
@@ -408,7 +409,7 @@ export default function Navbar() {
               </div>
 
               {/* Wishlist */}
-              <a
+              <Link
                 href="/wishlist"
                 className="relative flex items-center gap-2 text-blue-500 hover:text-blue-600"
                 data-discover="true"
@@ -416,9 +417,9 @@ export default function Navbar() {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 512 512"
-                  class="text-xl relative"
+                  className="text-xl relative"
                   height="1em"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -431,10 +432,10 @@ export default function Navbar() {
                     0
                   </span>
                 </span>
-              </a>
+              </Link>
 
               {/* Cart */}
-              <a
+              <Link
                 href="/cart"
                 className="relative flex items-center gap-2 text-blue-500 hover:text-blue-600"
                 data-discover="true"
@@ -442,9 +443,9 @@ export default function Navbar() {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 576 512"
-                  class="text-xl relative"
+                  className="text-xl relative"
                   height="1em"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -457,7 +458,7 @@ export default function Navbar() {
                     0
                   </span>
                 </span>
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Menu Icon & Search */}
@@ -466,7 +467,7 @@ export default function Navbar() {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 448 512"
                   height="1em"
                   width="1em"
@@ -494,7 +495,7 @@ export default function Navbar() {
         <div className="fixed top-0 left-0 h-full w-72 bg-white shadow-lg transform transition-transform duration-300 z-50 -translate-x-full">
           {/* Sidebar Header */}
           {/* <div className="flex items-center justify-between px-4 py-3 border-b">
-            <a
+            <Link
               href="/"
               className="flex-1 flex items-center justify-center"
               data-discover="true"
@@ -506,7 +507,7 @@ export default function Navbar() {
                 className="h-10 w-auto object-contain"
                 src="/images/navbar/logo.png"
               ></Image>
-            </a>
+            </Link>
           </div> */}
         </div>
       </div>
