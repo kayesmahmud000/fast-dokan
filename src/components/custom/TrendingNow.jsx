@@ -1,78 +1,78 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 const TrendingProducts = () => {
   const trendingProducts = [
     {
-      product_name: 'Amazfit Bip 5 Smartwatch',
-      image_url: '/images/popularproducts/green_jacket.png',
+      product_name: "Amazfit Bip 5 Smartwatch",
+      image_url: "/images/popularproducts/green_jacket.png",
       rating: 4.7,
       discount_percentage: 18,
-      old_price: '৳ 1099',
-      new_price: '৳ 899',
+      old_price: "৳ 1099",
+      new_price: "৳ 899",
     },
     {
-      product_name: 'Logitech MX Anywhere 3 Mouse',
-      image_url: '/images/popularproducts/pink_jacket.png',
+      product_name: "Logitech MX Anywhere 3 Mouse",
+      image_url: "/images/popularproducts/pink_jacket.png",
       rating: 4.8,
       discount_percentage: 13,
-      old_price: '৳ 1499',
-      new_price: '৳ 1299',
+      old_price: "৳ 1499",
+      new_price: "৳ 1299",
     },
     {
-      product_name: 'IMILAB C20 Security Camera',
-      image_url: '/images/popularproducts/cleats.png',
+      product_name: "IMILAB C20 Security Camera",
+      image_url: "/images/popularproducts/cleats.png",
       rating: 4.9,
       discount_percentage: 11,
-      old_price: '৳ 1799',
-      new_price: '৳ 1599',
+      old_price: "৳ 1799",
+      new_price: "৳ 1599",
     },
     {
-      product_name: 'Haylou X1 Neo TWS Earbuds',
-      image_url: '/images/popularproducts/handbag.png',
+      product_name: "Haylou X1 Neo TWS Earbuds",
+      image_url: "/images/popularproducts/handbag.png",
       rating: 5,
       discount_percentage: 9,
-      old_price: '৳ 2199',
-      new_price: '৳ 1999',
+      old_price: "৳ 2199",
+      new_price: "৳ 1999",
     },
     {
-      product_name: 'Amazfit Bip 5 Smartwatch',
-      image_url: '/images/popularproducts/green_jacket.png',
+      product_name: "Amazfit Bip 5 Smartwatch",
+      image_url: "/images/popularproducts/green_jacket.png",
       rating: 4.7,
       discount_percentage: 18,
-      old_price: '৳ 1099',
-      new_price: '৳ 899',
+      old_price: "৳ 1099",
+      new_price: "৳ 899",
     },
     {
-      product_name: 'Logitech MX Anywhere 3 Mouse',
-      image_url: '/images/popularproducts/pink_jacket.png',
+      product_name: "Logitech MX Anywhere 3 Mouse",
+      image_url: "/images/popularproducts/pink_jacket.png",
       rating: 4.8,
       discount_percentage: 13,
-      old_price: '৳ 1499',
-      new_price: '৳ 1299',
+      old_price: "৳ 1499",
+      new_price: "৳ 1299",
     },
   ];
 
   return (
     <section className="py-15">
       <div className="baseContainer flex flex-col gap-1 md:gap-2">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-2">
-          <div className="flex flex-col">
+        <div className="flex  justify-between items-center ">
+          <div className="flex w-3/2 flex-col">
             <h2 className="text-xl md:text-2xl font-bold">New Arrivals</h2>
             <p className="font-light text-sm">
               Fresh picks — just landed in our store.
             </p>
           </div>
           {/* Note: The 'Link' component was replaced with a standard 'a' tag for compatibility. */}
-          <a href={'#'} className="underline text-blue-500 hover:text-blue-600">
+          <a href={"#"} className="w-1/2 text-blue-500 hover:text-blue-600">
             View All
           </a>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
           {trendingProducts.map((product, i) => (
             <Link
-              href={''}
+              href={""}
               key={`trendingnow${i + 12}`}
               className="relative bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col p-2 border-blue-500 border"
             >

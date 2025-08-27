@@ -1,17 +1,15 @@
-import Image from 'next/image';
-import React from 'react';
+import Image from "next/image";
+import React from "react";
 
 const ExcitingPrices = () => {
   return (
-    <section className="px-4 py-5 md:px-14 ">
+    <section className="max-w-6xl w-full mx-auto">
       <Image
         src="/images/excitingprices/BannerImage-Cg8h1pDo.jpg"
         alt=""
-        width={0}
-        height={0}
-        sizes="100vw"
-        style={{ width: '100vw', height: '90vh' }}
-        className="rounded"
+        height={300}
+        width={300}
+        className="w-full rounded "
       />
     </section>
   );
