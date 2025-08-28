@@ -20,7 +20,7 @@ export default function MobileBottomMenu() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 bg-orange-50 shadow-xl w-full">
-      <div className="relative flex items-center justify-around w-full h-20 px-4">
+      <div className="relative flex items-center justify-around w-full h-20">
         {/* Home Nav Item */}
         <NavItem
           name="Home"
