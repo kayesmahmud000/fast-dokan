@@ -58,9 +58,10 @@ const EmblaCarousel = ({ slides, options }) => {
                 <div className="w-30 h-30 relative">
                   <Image
                     src={e.src}
-                    alt="image"
+                    alt={e.name}
                     fill
                     style={{ objectFit: 'contain' }}
+                    sizes="130px"
                   />
                 </div>
                 <h5 className="text-black text-lg font-semibold">{e.name}</h5>

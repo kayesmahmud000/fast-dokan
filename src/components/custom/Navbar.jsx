@@ -1,22 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import {
-  LayoutGrid,
-  ChevronDown,
-  Heart,
-  ShoppingCart,
-  Globe,
-  Menu,
-  X,
-  Search,
-  Phone,
-  User,
-} from 'lucide-react';
-import { IoSearch } from 'react-icons/io5';
-import { FaPhoneAlt } from 'react-icons/fa';
 import Image from 'next/image';
-import { FaApple, FaAndroid } from 'react-icons/fa'; // Example icons
 import Link from 'next/link';
 
 export default function Navbar() {
@@ -24,14 +9,15 @@ export default function Navbar() {
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState('bangla');
+  // const [currentLanguage, setCurrentLanguage] = useState('bangla');
 
   const [click, setClick] = useState(false);
   // Close all dropdowns when the mobile menu is opened
   const handleMobileMenuToggle = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsMobileMenuOpen((prev) => !prev);
     setIsCategoriesOpen(false);
     setIsLanguageOpen(false);
+    console.log(isMobileMenuOpen);
   };
 
   const handelclick = () => {
@@ -463,7 +449,10 @@ export default function Navbar() {
 
             {/* Mobile Menu Icon & Search */}
             <div className="md:hidden flex items-center gap-2 w-full">
-              <button className="text-2xl text-blue-500 hover:text-blue-600">
+              <button
+                className="text-2xl text-blue-500 hover:text-blue-600"
+                onClick={handleMobileMenuToggle}
+              >
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
