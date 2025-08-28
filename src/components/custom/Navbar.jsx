@@ -7,6 +7,7 @@ import Link from 'next/link';
 export default function Navbar() {
   const [isUserClicked, setIsUserClicked] = useState(false);
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
+  const [isMobilePagesOpen, setIsMobilePagesOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMobileTab, setActiveMobileTab] = useState('profile');
@@ -41,7 +42,7 @@ export default function Navbar() {
     'Expatriate Network',
   ];
 
-  const pages = [''];
+  const pages = ['Campaign', 'Trending', 'Brands', 'Outlets'];
 
   const [click, setClick] = useState(false);
   // Close all dropdowns when the mobile menu is opened
@@ -599,7 +600,7 @@ export default function Navbar() {
                 {/* Categories Section */}
                 <div>
                   <button
-                    onClick={() => setIsCategoriesOpen(!isCategoriesOpen)}
+                    onClick={() => setIsCategoriesOpen((prev) => !prev)}
                     className="flex justify-between items-center w-full py-2 text-left font-semibold"
                   >
                     <span>Categories</span>
@@ -629,6 +630,43 @@ export default function Navbar() {
                         className="p-2 rounded hover:bg-gray-100 cursor-pointer"
                       >
                         {category}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <button
+                    onClick={() => setIsMobilePagesOpen((prev) => !prev)}
+                    className="flex justify-between items-center w-full py-2 text-left font-semibold"
+                  >
+                    <span>Pages</span>
+                    <svg
+                      className={`transition-transform duration-200 ${
+                        isMobilePagesOpen ? 'rotate-180' : ''
+                      }`}
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth="0"
+                      viewBox="0 0 320 512"
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path>
+                    </svg>
+                  </button>
+                  <ul
+                    className={`mt-2 transition-all duration-300 ${
+                      isMobilePagesOpen ? 'max-h-96' : 'max-h-0'
+                    } overflow-hidden`}
+                  >
+                    {pages.map((pages, index) => (
+                      <li
+                        key={`pages${index}`}
+                        className="p-2 rounded hover:bg-gray-100 cursor-pointer"
+                      >
+                        {pages}
                       </li>
                     ))}
                   </ul>
