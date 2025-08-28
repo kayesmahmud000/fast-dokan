@@ -1,35 +1,65 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import {
-  LayoutGrid,
-  ChevronDown,
-  Heart,
-  ShoppingCart,
-  Globe,
-  Menu,
-  X,
-  Search,
-  Phone,
-  User,
-} from "lucide-react";
-import { IoSearch } from "react-icons/io5";
-import { FaPhoneAlt } from "react-icons/fa";
-import Image from "next/image";
-import { FaApple, FaAndroid } from "react-icons/fa"; // Example icons
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Navbar() {
+  const [isUserClicked, setIsUserClicked] = useState(false);
+  const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
+  const [isMobilePagesOpen, setIsMobilePagesOpen] = useState(false);
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeMobileTab, setActiveMobileTab] = useState('profile');
+
+  // const [currentLanguage, setCurrentLanguage] = useState('bangla');
+
+  const categories = [
+    'Rod',
+    'Cement',
+    'Tin Sheet',
+    'Stone & Sand',
+    'Hardware',
+    'Grocery',
+    'Cosmetics',
+    'Mobile',
+    'Electric',
+    'Electronics',
+    'Furniture',
+    'Motorcycle',
+    'Garments',
+    'Fish Feed',
+    'Poultry Feed',
+    'Cattle Feed',
+    'Ceramic',
+    'Tiles',
+    'Tire',
+    'Lubricant',
+    'Bicycle',
+    'Glass',
+    'Housing',
+    'Land Development',
+    'Expatriate Network',
+  ];
+
+  const pages = ['Campaign', 'Trending', 'Brands', 'Outlets'];
+
   const [click, setClick] = useState(false);
-
-  const [showDropdown, setShowDropdown] = useState(false);
-
-  const [language, setLanguage] = useState("en");
-
-  const [hamber, setHumber] = useState("false");
+  // Close all dropdowns when the mobile menu is opened
+  const handleMobileMenuToggle = () => {
+    setIsMobileMenuOpen((prev) => !prev);
+    setIsCategoriesOpen(false);
+    setIsLanguageOpen(false);
+    console.log(isMobileMenuOpen);
+  };
 
   const handelclick = () => {
     setClick((prev) => !prev);
   };
+
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const [language, setLanguage] = useState('en');
 
   const handleSelectLanguage = (lang) => {
     setLanguage(lang);
@@ -37,11 +67,11 @@ export default function Navbar() {
   };
 
   const selectedLanguage = {
-    label: language === "en" ? "English" : "বাংলা",
+    label: language === 'en' ? 'English' : 'বাংলা',
     imgSrc:
-      language === "en"
-        ? "/images/navbar/english.png"
-        : "/images/navbar/bangla.jpg",
+      language === 'en'
+        ? '/images/navbar/english.png'
+        : '/images/navbar/bangla.jpg',
   };
 
   return (
@@ -53,15 +83,15 @@ export default function Navbar() {
             {/* Logo and Search */}
             <div className="flex items-center gap-4 flex-1">
               {/* logo for mobile and desktop  */}
-              <a href="/" data-discover="true">
+              <Link href="/" data-discover="true">
                 <Image
                   src="/images/navbar/logo.png"
                   alt="logo"
                   width={60}
                   height={60}
-                  classNameName=""
+                  className=""
                 ></Image>
-              </a>
+              </Link>
 
               {/* Search Bar - Desktop */}
               <div className="hidden sm:flex flex-1 max-w-full sm:max-w-xl relative">
@@ -107,30 +137,30 @@ export default function Navbar() {
 
               {/* Wishlist Icon - Mobile */}
               <div className="sm:hidden ">
-                <a
-                  class="flex flex-col items-center gap-0.5 px-2 py-1 text-blue-500 rounded hover:text-blue-600 relative"
+                <Link
+                  className="flex flex-col items-center gap-0.5 px-2 py-1 text-blue-500 rounded hover:text-blue-600 relative"
                   href="/wishlist"
                   data-discover="true"
                 >
-                  <div class="relative">
+                  <div className="relative">
                     <svg
                       stroke="currentColor"
                       fill="currentColor"
-                      stroke-width="0"
+                      strokeWidth="0"
                       viewBox="0 0 512 512"
-                      class="text-xl"
+                      className="text-xl"
                       height="1em"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
                     </svg>
-                    <span class="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
+                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
                       0
                     </span>
                   </div>
-                  <span class="text-xs">Wishlist</span>
-                </a>
+                  <span className="text-xs">Wishlist</span>
+                </Link>
               </div>
 
               {/* Login Icon */}
@@ -139,9 +169,9 @@ export default function Navbar() {
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
-                    stroke-width="0"
+                    strokeWidth="0"
                     viewBox="0 0 448 512"
-                    class="text-xl"
+                    className="text-xl"
                     height="1em"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -179,9 +209,9 @@ export default function Navbar() {
                     <svg
                       stroke="currentColor"
                       fill="currentColor"
-                      stroke-width="0"
+                      strokeWidth="0"
                       viewBox="0 0 320 512"
-                      class="transition-transform rotate-180"
+                      className="transition-transform rotate-180"
                       height="1em"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -192,9 +222,9 @@ export default function Navbar() {
                     <svg
                       stroke="currentColor"
                       fill="currentColor"
-                      stroke-width="0"
+                      strokeWidth="0"
                       viewBox="0 0 320 512"
-                      class="transition-transform "
+                      className="transition-transform "
                       height="1em"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -205,7 +235,7 @@ export default function Navbar() {
                 </button>
                 <div
                   className={`${
-                    click ? "flex" : "hidden"
+                    click ? 'flex' : 'hidden'
                   } absolute bg-white shadow-md rounded-md mt-2 w-64 z-50 max-h-80 overflow-y-auto`}
                 >
                   <ul className="flex flex-col text-sm text-blue-500">
@@ -275,13 +305,13 @@ export default function Navbar() {
                     <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
                       Glass
                     </li>
-                    <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                    <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
                       Housing
                     </li>
-                    <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                    <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
                       Land Development
                     </li>
-                    <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                    <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
                       Expatriate Network
                     </li>
                   </ul>
@@ -290,41 +320,41 @@ export default function Navbar() {
 
               {/* Menu Links */}
               <div className="hidden md:flex items-center gap-6 ml-8">
-                <a
+                <Link
                   href="/"
                   className="text-blue-500 font-semibold"
                   data-discover="true"
                 >
                   Home
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/campaign"
                   className="text-blue-500 hover:text-blue-600"
                   data-discover="true"
                 >
                   Campaign
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/trending"
                   className="text-blue-500 hover:text-blue-600"
                   data-discover="true"
                 >
                   Trending
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/brands"
                   className="text-blue-500 hover:text-blue-600"
                   data-discover="true"
                 >
                   Brands
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/outlets"
                   className="text-blue-500 hover:text-blue-600"
                   data-discover="true"
                 >
                   Outlets
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -363,9 +393,9 @@ export default function Navbar() {
                 {/* Dropdown Options */}
                 {showDropdown && (
                   <div className="absolute z-10 mt-2 w-40 bg-white text-black shadow-md rounded-md">
-                    {language !== "en" && (
+                    {language !== 'en' && (
                       <button
-                        onClick={() => handleSelectLanguage("en")}
+                        onClick={() => handleSelectLanguage('en')}
                         className="flex items-center gap-2 w-full px-4 py-2 text-left hover:bg-gray-100"
                       >
                         <Image
@@ -378,9 +408,9 @@ export default function Navbar() {
                         <span>English</span>
                       </button>
                     )}
-                    {language !== "bn" && (
+                    {language !== 'bn' && (
                       <button
-                        onClick={() => handleSelectLanguage("bn")}
+                        onClick={() => handleSelectLanguage('bn')}
                         className="flex items-center gap-2 w-full px-4 py-2 text-left hover:bg-gray-100"
                       >
                         <Image
@@ -398,7 +428,7 @@ export default function Navbar() {
               </div>
 
               {/* Wishlist */}
-              <a
+              <Link
                 href="/wishlist"
                 className="relative flex items-center gap-2 text-blue-500 hover:text-blue-600"
                 data-discover="true"
@@ -406,9 +436,9 @@ export default function Navbar() {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 512 512"
-                  class="text-xl relative"
+                  className="text-xl relative"
                   height="1em"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -421,10 +451,10 @@ export default function Navbar() {
                     0
                   </span>
                 </span>
-              </a>
+              </Link>
 
               {/* Cart */}
-              <a
+              <Link
                 href="/cart"
                 className="relative flex items-center gap-2 text-blue-500 hover:text-blue-600"
                 data-discover="true"
@@ -432,9 +462,9 @@ export default function Navbar() {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 576 512"
-                  class="text-xl relative"
+                  className="text-xl relative"
                   height="1em"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -447,19 +477,19 @@ export default function Navbar() {
                     0
                   </span>
                 </span>
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Menu Icon & Search */}
             <div className="md:hidden flex items-center gap-2 w-full">
               <button
-                onClick={() => setHumber(true)}
                 className="text-2xl text-blue-500 hover:text-blue-600"
+                onClick={handleMobileMenuToggle}
               >
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 448 512"
                   height="1em"
                   width="1em"
@@ -485,69 +515,226 @@ export default function Navbar() {
 
         {/* Sidebar - Mobile */}
         <div
-          className={`fixed ${
-            hamber ? "block" : "hidden"
-          } top-0 left-0 h-full w-72 bg-white shadow-lg transform transition-transform duration-300 z-50 translate-x-0 md:hidden `}
+          className={`fixed top-0 left-0 h-full w-72 bg-white shadow-lg transform transition-transform duration-300 z-50 ${
+            isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
         >
+          {/* Sidebar Header with Close Button */}
           <div className="flex items-center justify-between px-4 py-3 border-b">
+            {/* Replaced Next.js Link and Image with standard HTML a and img */}
             <a
-              className="flex-1 flex items-center justify-center"
               href="/"
+              className="flex-1 flex items-center justify-center"
               data-discover="true"
             >
               <Image
+                width={40}
+                height={40}
                 alt="Logo"
-                height={200}
-                width={200}
-                className="h-10 w-auto object-contain"
+                // className="h-10 w-auto"
                 src="/images/navbar/logo.png"
-              ></Image>
+              />
             </a>
             <button
-              onClick={() => setHumber(false)}
-              className="text-2xl ml-2 text-blue-500 hover:text-blue-600"
+              onClick={handleMobileMenuToggle}
+              className="text-2xl text-blue-500 hover:text-blue-600"
             >
               <svg
                 stroke="currentColor"
                 fill="currentColor"
-                stroke-width="0"
+                strokeWidth="0"
                 viewBox="0 0 352 512"
                 height="1em"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
+                <path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.66-22.66c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L8.81 111.87c-12.28 12.28-12.28 32.19 0 44.48L109.87 256 8.81 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.66 22.66c12.28 12.28 32.19 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.19 12.28 44.48 0l22.66-22.66c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
               </svg>
             </button>
           </div>
-          <div className="flex border-b text-sm font-semibold">
-            <button className="flex-1 py-2 text-black border-b-2 border-blue-500">
+
+          {/* Profile and Filter Data Tabs */}
+          <div className="flex w-full border-b">
+            <button
+              className={`flex-1 text-center py-3 text-sm font-semibold transition-colors duration-200 ${
+                activeMobileTab === 'profile'
+                  ? 'text-blue-500 border-b-2 border-blue-500'
+                  : 'text-gray-500 hover:text-blue-500'
+              }`}
+              onClick={() => setActiveMobileTab('profile')}
+            >
               PROFILE
             </button>
-            <button className="flex-1 py-2 text-gray-500">FILTER DATA</button>
+            <button
+              className={`flex-1 text-center py-3 text-sm font-semibold transition-colors duration-200 ${
+                activeMobileTab === 'filter'
+                  ? 'text-blue-500 border-b-2 border-blue-500'
+                  : 'text-gray-500 hover:text-blue-500'
+              }`}
+              onClick={() => setActiveMobileTab('filter')}
+            >
+              FILTER DATA
+            </button>
           </div>
-          <div className="flex flex-col px-4 py-4 space-y-2">
-            <a
-              className="px-4 py-2 rounded hover:bg-blue-50 text-gray-700"
-              href="/retailer-register"
-              data-discover="true"
-            >
-              Retailer Register
-            </a>
-            <a
-              className="px-4 py-2 rounded hover:bg-blue-50 text-gray-700"
-              href="/customer-register"
-              data-discover="true"
-            >
-              Customer Register
-            </a>
-            <a
-              className="px-4 py-2 rounded hover:bg-blue-50 text-gray-700"
-              href="/login"
-              data-discover="true"
-            >
-              Login
-            </a>
+
+          {/* Sidebar Content */}
+          <div className="p-4 overflow-y-auto">
+            {/* Profile Tab Content */}
+            {activeMobileTab === 'profile' && (
+              <ul className="flex flex-col gap-2 text-sm text-gray-700">
+                <li className="p-2 rounded hover:bg-gray-100 cursor-pointer">
+                  Retailer Register
+                </li>
+                <li className="p-2 rounded hover:bg-gray-100 cursor-pointer">
+                  Customer Register
+                </li>
+                <li className="p-2 rounded hover:bg-gray-100 cursor-pointer">
+                  Login
+                </li>
+              </ul>
+            )}
+
+            {/* Filter Data Tab Content */}
+            {activeMobileTab === 'filter' && (
+              <div className="flex flex-col gap-4 text-sm text-gray-700">
+                {/* Categories Section */}
+                <div>
+                  <button
+                    onClick={() => setIsCategoriesOpen((prev) => !prev)}
+                    className="flex justify-between items-center w-full py-2 text-left font-semibold"
+                  >
+                    <span>Categories</span>
+                    <svg
+                      className={`transition-transform duration-200 ${
+                        isCategoriesOpen ? 'rotate-180' : ''
+                      }`}
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth="0"
+                      viewBox="0 0 320 512"
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path>
+                    </svg>
+                  </button>
+                  <ul
+                    className={`mt-2 transition-all duration-300 ${
+                      isCategoriesOpen ? 'max-h-96' : 'max-h-0'
+                    } overflow-hidden`}
+                  >
+                    {categories.map((category, index) => (
+                      <li
+                        key={index}
+                        className="p-2 rounded hover:bg-gray-100 cursor-pointer"
+                      >
+                        {category}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <button
+                    onClick={() => setIsMobilePagesOpen((prev) => !prev)}
+                    className="flex justify-between items-center w-full py-2 text-left font-semibold"
+                  >
+                    <span>Pages</span>
+                    <svg
+                      className={`transition-transform duration-200 ${
+                        isMobilePagesOpen ? 'rotate-180' : ''
+                      }`}
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth="0"
+                      viewBox="0 0 320 512"
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path>
+                    </svg>
+                  </button>
+                  <ul
+                    className={`mt-2 transition-all duration-300 ${
+                      isMobilePagesOpen ? 'max-h-96' : 'max-h-0'
+                    } overflow-hidden`}
+                  >
+                    {pages.map((pages, index) => (
+                      <li
+                        key={`pages${index}`}
+                        className="p-2 rounded hover:bg-gray-100 cursor-pointer"
+                      >
+                        {pages}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Language Section */}
+                <div>
+                  <button
+                    onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+                    className="flex justify-between items-center w-full py-2 text-left font-semibold"
+                  >
+                    <span>Language</span>
+                    <svg
+                      className={`transition-transform duration-200 ${
+                        isLanguageOpen ? 'rotate-180' : ''
+                      }`}
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth="0"
+                      viewBox="0 0 320 512"
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path>
+                    </svg>
+                  </button>
+                  <ul
+                    className={`mt-2 transition-all duration-300 ${
+                      isLanguageOpen ? 'max-h-24' : 'max-h-0'
+                    } overflow-hidden`}
+                  >
+                    {language !== 'en' && (
+                      <li
+                        onClick={() => handleSelectLanguage('en')}
+                        className="flex items-center gap-2 p-2 rounded hover:bg-gray-100 cursor-pointer"
+                      >
+                        {/* Replaced Next.js Image with a standard HTML img */}
+                        <img
+                          src="https://placehold.co/20x20?text=EN"
+                          width={20}
+                          height={20}
+                          alt="flag"
+                          className="rounded-full"
+                        />
+                        <span>English</span>
+                      </li>
+                    )}
+                    {language !== 'bn' && (
+                      <li
+                        onClick={() => handleSelectLanguage('bn')}
+                        className="flex items-center gap-2 p-2 rounded hover:bg-gray-100 cursor-pointer"
+                      >
+                        {/* Replaced Next.js Image with a standard HTML img */}
+                        <img
+                          src="https://placehold.co/20x20?text=BN"
+                          width={20}
+                          height={20}
+                          alt="flag"
+                          className="rounded-full"
+                        />
+                        <span>বাংলা</span>
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
