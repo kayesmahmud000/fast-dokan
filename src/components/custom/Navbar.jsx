@@ -9,7 +9,39 @@ export default function Navbar() {
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeMobileTab, setActiveMobileTab] = useState('profile');
+
   // const [currentLanguage, setCurrentLanguage] = useState('bangla');
+
+  const categories = [
+    'Rod',
+    'Cement',
+    'Tin Sheet',
+    'Stone & Sand',
+    'Hardware',
+    'Grocery',
+    'Cosmetics',
+    'Mobile',
+    'Electric',
+    'Electronics',
+    'Furniture',
+    'Motorcycle',
+    'Garments',
+    'Fish Feed',
+    'Poultry Feed',
+    'Cattle Feed',
+    'Ceramic',
+    'Tiles',
+    'Tire',
+    'Lubricant',
+    'Bicycle',
+    'Glass',
+    'Housing',
+    'Land Development',
+    'Expatriate Network',
+  ];
+
+  const pages = [''];
 
   const [click, setClick] = useState(false);
   // Close all dropdowns when the mobile menu is opened
@@ -481,23 +513,191 @@ export default function Navbar() {
         </div>
 
         {/* Sidebar - Mobile */}
-        <div className="fixed top-0 left-0 h-full w-72 bg-white shadow-lg transform transition-transform duration-300 z-50 -translate-x-full">
-          {/* Sidebar Header */}
-          {/* <div className="flex items-center justify-between px-4 py-3 border-b">
-            <Link
+        <div
+          className={`fixed top-0 left-0 h-full w-72 bg-white shadow-lg transform transition-transform duration-300 z-50 ${
+            isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
+        >
+          {/* Sidebar Header with Close Button */}
+          <div className="flex items-center justify-between px-4 py-3 border-b">
+            {/* Replaced Next.js Link and Image with standard HTML a and img */}
+            <a
               href="/"
               className="flex-1 flex items-center justify-center"
               data-discover="true"
             >
               <Image
-                width={100}
-                height={390}
+                width={40}
+                height={40}
                 alt="Logo"
-                className="h-10 w-auto object-contain"
+                // className="h-10 w-auto"
                 src="/images/navbar/logo.png"
-              ></Image>
-            </Link>
-          </div> */}
+              />
+            </a>
+            <button
+              onClick={handleMobileMenuToggle}
+              className="text-2xl text-blue-500 hover:text-blue-600"
+            >
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                strokeWidth="0"
+                viewBox="0 0 352 512"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.66-22.66c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L8.81 111.87c-12.28 12.28-12.28 32.19 0 44.48L109.87 256 8.81 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.66 22.66c12.28 12.28 32.19 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.19 12.28 44.48 0l22.66-22.66c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
+              </svg>
+            </button>
+          </div>
+
+          {/* Profile and Filter Data Tabs */}
+          <div className="flex w-full border-b">
+            <button
+              className={`flex-1 text-center py-3 text-sm font-semibold transition-colors duration-200 ${
+                activeMobileTab === 'profile'
+                  ? 'text-blue-500 border-b-2 border-blue-500'
+                  : 'text-gray-500 hover:text-blue-500'
+              }`}
+              onClick={() => setActiveMobileTab('profile')}
+            >
+              PROFILE
+            </button>
+            <button
+              className={`flex-1 text-center py-3 text-sm font-semibold transition-colors duration-200 ${
+                activeMobileTab === 'filter'
+                  ? 'text-blue-500 border-b-2 border-blue-500'
+                  : 'text-gray-500 hover:text-blue-500'
+              }`}
+              onClick={() => setActiveMobileTab('filter')}
+            >
+              FILTER DATA
+            </button>
+          </div>
+
+          {/* Sidebar Content */}
+          <div className="p-4 overflow-y-auto">
+            {/* Profile Tab Content */}
+            {activeMobileTab === 'profile' && (
+              <ul className="flex flex-col gap-2 text-sm text-gray-700">
+                <li className="p-2 rounded hover:bg-gray-100 cursor-pointer">
+                  Retailer Register
+                </li>
+                <li className="p-2 rounded hover:bg-gray-100 cursor-pointer">
+                  Customer Register
+                </li>
+                <li className="p-2 rounded hover:bg-gray-100 cursor-pointer">
+                  Login
+                </li>
+              </ul>
+            )}
+
+            {/* Filter Data Tab Content */}
+            {activeMobileTab === 'filter' && (
+              <div className="flex flex-col gap-4 text-sm text-gray-700">
+                {/* Categories Section */}
+                <div>
+                  <button
+                    onClick={() => setIsCategoriesOpen(!isCategoriesOpen)}
+                    className="flex justify-between items-center w-full py-2 text-left font-semibold"
+                  >
+                    <span>Categories</span>
+                    <svg
+                      className={`transition-transform duration-200 ${
+                        isCategoriesOpen ? 'rotate-180' : ''
+                      }`}
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth="0"
+                      viewBox="0 0 320 512"
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path>
+                    </svg>
+                  </button>
+                  <ul
+                    className={`mt-2 transition-all duration-300 ${
+                      isCategoriesOpen ? 'max-h-96' : 'max-h-0'
+                    } overflow-hidden`}
+                  >
+                    {categories.map((category, index) => (
+                      <li
+                        key={index}
+                        className="p-2 rounded hover:bg-gray-100 cursor-pointer"
+                      >
+                        {category}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Language Section */}
+                <div>
+                  <button
+                    onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+                    className="flex justify-between items-center w-full py-2 text-left font-semibold"
+                  >
+                    <span>Language</span>
+                    <svg
+                      className={`transition-transform duration-200 ${
+                        isLanguageOpen ? 'rotate-180' : ''
+                      }`}
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth="0"
+                      viewBox="0 0 320 512"
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path>
+                    </svg>
+                  </button>
+                  <ul
+                    className={`mt-2 transition-all duration-300 ${
+                      isLanguageOpen ? 'max-h-24' : 'max-h-0'
+                    } overflow-hidden`}
+                  >
+                    {language !== 'en' && (
+                      <li
+                        onClick={() => handleSelectLanguage('en')}
+                        className="flex items-center gap-2 p-2 rounded hover:bg-gray-100 cursor-pointer"
+                      >
+                        {/* Replaced Next.js Image with a standard HTML img */}
+                        <img
+                          src="https://placehold.co/20x20?text=EN"
+                          width={20}
+                          height={20}
+                          alt="flag"
+                          className="rounded-full"
+                        />
+                        <span>English</span>
+                      </li>
+                    )}
+                    {language !== 'bn' && (
+                      <li
+                        onClick={() => handleSelectLanguage('bn')}
+                        className="flex items-center gap-2 p-2 rounded hover:bg-gray-100 cursor-pointer"
+                      >
+                        {/* Replaced Next.js Image with a standard HTML img */}
+                        <img
+                          src="https://placehold.co/20x20?text=BN"
+                          width={20}
+                          height={20}
+                          alt="flag"
+                          className="rounded-full"
+                        />
+                        <span>বাংলা</span>
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </>
