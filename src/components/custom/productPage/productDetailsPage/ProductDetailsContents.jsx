@@ -138,6 +138,13 @@ export default function ProductDetailsContents() {
             <ReviewCard />
           </div>
         </div>
+
+        <div className="flex flex-col gap-3">
+          <h1 className="font-semibold text-2xl md:text-[2.2rem]">Questions</h1>
+          <div className="p-4 border-gray-300 border rounded-2xl flex flex-col gap-3">
+            <ReviewCard />
+          </div>
+        </div>
         {/* {productContent
           .filter((item) => filter === null || item.category === filter)
           .map((item) => (
