@@ -1,4 +1,5 @@
-import ProductDetailsNav from "@/components/custom/productPage/productDetailsPage/ProductDetailsNav";
+import ProductDetailsContents from "@/components/custom/productPage/productDetailsPage/ProductDetailsContents";
+import ProductDetailsHero from "@/components/custom/productPage/productDetailsPage/ProductDetailsHero";
 
 export default async function ProductDetailsPage({ params }) {
   const productId = (await params).productId;
@@ -6,8 +7,8 @@ export default async function ProductDetailsPage({ params }) {
 
   return (
     <>
-      {productId}
-      <ProductDetailsNav />
+      <ProductDetailsHero />
+      <ProductDetailsContents />
     </>
   );
 }

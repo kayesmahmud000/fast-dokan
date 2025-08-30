@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import React from 'react';
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import Link from "next/link";
+import React from "react";
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -10,9 +10,9 @@ const Footer = () => {
           {/* Logo and Social Media */}
           <div className="flex flex-col items-center md:items-start mb-8 md:mb-0">
             {/* Using a standard img tag for compatibility */}
-            <div className="mb-4">
+            <div className="relative mb-4">
               <img
-                src="/images/navbar/logo.png"
+                src="/logo.png"
                 alt="Company Logo"
                 width={100}
                 height={100}
