@@ -106,6 +106,57 @@ export default function ProductDetailsContents() {
             </div>
             <div className="grid gap-3">
               <h2 className="text-blue-500 text-xl font-semibold md:text-2xl">
+                Processor
+              </h2>
+              <div className="grid text-sm md:text-md pb-4 border-b border-gray-300">
+                <div className="grid-cols-2 grid md:grid-cols-3 md:pr-60">
+                  <span className="w-fit">Chipset</span>
+                  <span>A18 chip</span>
+                </div>
+                <div className="grid-cols-2 grid md:grid-cols-3 md:pr-60">
+                  <span className="w-fit">CPU Type</span>
+                  <span>
+                    Super Retina XDR display {"all‑screen"} OLED display
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <h1 className="font-semibold text-2xl md:text-[2.2rem]">
+            Description
+          </h1>
+          <div className="p-4 border-gray-200 border rounded-2xl flex flex-col gap-3">
+            <div className="grid gap-3">
+              <h2 className="text-blue-500 text-xl font-semibold md:text-2xl">
+                iPhone 16e
+              </h2>
+              <p className="text-sm md:text-md pb-4 border-b border-gray-300">
+                Introducing Apple's iPhone 16e, the Newest Member of the
+                Game-Changer Lineup It is powered by the fast and efficient A18
+                chip and also includes Apple&apos;s first C1 modem for efficient
+                5G connectivity. The iPhone 16e features sleek black and white
+                matte colorways with a staple flat aluminum mid-frame and glass
+                back. The Super Retina XDR OLED display size is 6.1 inches, with
+                a resolution of 2532x1170 pixels, HDR, and a peak brightness of
+                1200 nits.The 48MP Fusion camera features optical image
+                stabilization and Hybrid Focus Pixels, as well as a 12MP 2x
+                telephoto option, and the 12MP front camera has autofocus and
+                automated picture stabilization. The iphone 16e has a battery
+                life of up to 26 hours for video and 90 hours for audio, and it
+                supports Type-C fast charging and wireless charging. Apple
+                Intelligence capabilities include Writing Tools, Notification
+                Summary, Image Playground, Genmoji, and Visual Intelligence,
+                which includes text summarization, translation, and phone number
+                and email address identification. With 5G connectivity, Wi-Fi 6,
+                Bluetooth 5.3, and NFC support, the iPhone 16e is an innovative
+                yet affordable smartphone update option.
+              </p>
+            </div>
+            <div className="grid gap-3">
+              <h2 className="text-blue-500 text-xl font-semibold md:text-2xl">
                 New Bionic A18 Chip
               </h2>
               <p className="text-sm md:text-md pb-4 border-b border-gray-300">
