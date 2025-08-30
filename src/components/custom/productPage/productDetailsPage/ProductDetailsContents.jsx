@@ -78,7 +78,7 @@ export default function ProductDetailsContents() {
               <h2 className="text-blue-500 text-xl font-semibold md:text-2xl">
                 iPhone 16e
               </h2>
-              <p>
+              <p className="text-sm pb-1 border-b border-gray-300">
                 Introducing Apple's iPhone 16e, the Newest Member of the
                 Game-Changer Lineup It is powered by the fast and efficient A18
                 chip and also includes Apple&apos;s first C1 modem for efficient
@@ -104,7 +104,7 @@ export default function ProductDetailsContents() {
               <h2 className="text-blue-500 text-xl font-semibold md:text-2xl">
                 New Bionic A18 Chip
               </h2>
-              <p>
+              <p className="text-sm pb-1 border-b border-gray-300">
                 The A18 Bionic chip found in the iPhone 16e is a significant
                 advancement in mobile processing technology. Built on a
                 cutting-edge 3-nanometer technology, the A18 Bionic chip

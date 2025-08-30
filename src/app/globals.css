@@ -1,9 +1,7 @@
-@import 'tailwindcss';
-@import "tw-animate-css";
+@import "tailwindcss";
+/* @import "tw-animate-css"; */
 
 @custom-variant dark (&:is(.dark *));
-
-
 
 /* @media (prefers-color-scheme: dark) {
   :root {
@@ -19,5 +17,3 @@ body {
 .baseContainer {
   @apply max-w-7xl mx-auto w-full px-4 md:px-10;
 }
-
-
