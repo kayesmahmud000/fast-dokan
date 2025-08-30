@@ -1,23 +1,17 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
-  const [isUserClicked, setIsUserClicked] = useState(false);
-  const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
-  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState('bangla');
-
   const [click, setClick] = useState(false);
-  // Close all dropdowns when the mobile menu is opened
-  const handleMobileMenuToggle = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-    setIsCategoriesOpen(false);
-    setIsLanguageOpen(false);
-  };
+
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const [language, setLanguage] = useState("en");
+
+  const [hamber, setHumber] = useState("false");
 
   const handelclick = () => {
     setClick((prev) => !prev);
@@ -25,7 +19,7 @@ export default function Navbar() {
 
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState("en");
 
   const handleSelectLanguage = (lang) => {
     setLanguage(lang);
@@ -33,11 +27,11 @@ export default function Navbar() {
   };
 
   const selectedLanguage = {
-    label: language === 'en' ? 'English' : 'বাংলা',
+    label: language === "en" ? "English" : "বাংলা",
     imgSrc:
-      language === 'en'
-        ? '/images/navbar/english.png'
-        : '/images/navbar/bangla.jpg',
+      language === "en"
+        ? "/images/navbar/english.png"
+        : "/images/navbar/bangla.jpg",
   };
 
   return (
@@ -201,7 +195,7 @@ export default function Navbar() {
                 </button>
                 <div
                   className={`${
-                    click ? 'flex' : 'hidden'
+                    click ? "flex" : "hidden"
                   } absolute bg-white shadow-md rounded-md mt-2 w-64 z-50 max-h-80 overflow-y-auto`}
                 >
                   <ul className="flex flex-col text-sm text-blue-500">
@@ -359,9 +353,9 @@ export default function Navbar() {
                 {/* Dropdown Options */}
                 {showDropdown && (
                   <div className="absolute z-10 mt-2 w-40 bg-white text-black shadow-md rounded-md">
-                    {language !== 'en' && (
+                    {language !== "en" && (
                       <button
-                        onClick={() => handleSelectLanguage('en')}
+                        onClick={() => handleSelectLanguage("en")}
                         className="flex items-center gap-2 w-full px-4 py-2 text-left hover:bg-gray-100"
                       >
                         <Image
@@ -374,9 +368,9 @@ export default function Navbar() {
                         <span>English</span>
                       </button>
                     )}
-                    {language !== 'bn' && (
+                    {language !== "bn" && (
                       <button
-                        onClick={() => handleSelectLanguage('bn')}
+                        onClick={() => handleSelectLanguage("bn")}
                         className="flex items-center gap-2 w-full px-4 py-2 text-left hover:bg-gray-100"
                       >
                         <Image
@@ -448,7 +442,10 @@ export default function Navbar() {
 
             {/* Mobile Menu Icon & Search */}
             <div className="md:hidden flex items-center gap-2 w-full">
-              <button className="text-2xl text-blue-500 hover:text-blue-600">
+              <button
+                onClick={() => setHumber(true)}
+                className="text-2xl text-blue-500 hover:text-blue-600"
+              >
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
@@ -477,23 +474,71 @@ export default function Navbar() {
         </div>
 
         {/* Sidebar - Mobile */}
-        <div className="fixed top-0 left-0 h-full w-72 bg-white shadow-lg transform transition-transform duration-300 z-50 -translate-x-full">
-          {/* Sidebar Header */}
-          {/* <div className="flex items-center justify-between px-4 py-3 border-b">
+        <div
+          className={`fixed ${
+            hamber ? "block" : "hidden"
+          } top-0 left-0 h-full w-72 bg-white shadow-lg transform transition-transform duration-300 z-50 translate-x-0 md:hidden `}
+        >
+          <div className="flex items-center justify-between px-4 py-3 border-b">
             <a
-              className="flex-1 flex items-center justify-center"
               href="/"
+              className="flex-1 flex items-center justify-center"
               data-discover="true"
             >
               <Image
-                width={100}
-                height={390}
                 alt="Logo"
+                height={200}
+                width={200}
                 className="h-10 w-auto object-contain"
                 src="/images/navbar/logo.png"
-              ></Image>
+              />
             </a>
-          </div> */}
+            <button
+              onClick={() => setHumber(false)}
+              className="text-2xl ml-2 text-blue-500 hover:text-blue-600"
+            >
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                stroke-width="0"
+                viewBox="0 0 352 512"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
+              </svg>
+            </button>
+          </div>
+          <div className="flex border-b text-sm font-semibold">
+            <button className="flex-1 py-2 text-black border-b-2 border-blue-500">
+              PROFILE
+            </button>
+            <button className="flex-1 py-2 text-gray-500">FILTER DATA</button>
+          </div>
+          <div className="flex flex-col px-4 py-4 space-y-2">
+            <a
+              className="px-4 py-2 rounded hover:bg-blue-50 text-gray-700"
+              href="/retailer-register"
+              data-discover="true"
+            >
+              Retailer Register
+            </a>
+            <a
+              className="px-4 py-2 rounded hover:bg-blue-50 text-gray-700"
+              href="/customer-register"
+              data-discover="true"
+            >
+              Customer Register
+            </a>
+            <a
+              className="px-4 py-2 rounded hover:bg-blue-50 text-gray-700"
+              href="/login"
+              data-discover="true"
+            >
+              Login
+            </a>
+          </div>
         </div>
       </div>
     </>
