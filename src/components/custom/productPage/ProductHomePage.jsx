@@ -1,11 +1,16 @@
 "use client";
+import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 
 export default function ProductHomePage() {
   const [isFavorite, setIsFavorite] = useState(false);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
+    <Link
+      href={"/products/9782Iphone23"}
+      className="flex items-center justify-center min-h-screen bg-gray-100 p-4"
+    >
       {/* Product Card Container */}
       <div className="relative w-80 bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
         {/* Discount and Favorite Badges */}
@@ -38,11 +43,14 @@ export default function ProductHomePage() {
         </div>
 
         {/* Product Image */}
-        <img
-          src="https://placehold.co/600x400/8080ff/ffffff?text=Product+Image"
-          alt="IMILAB C20 Security Camera"
-          className="w-full h-auto object-cover rounded-t-3xl"
-        />
+        <div className="relative w-full h-[170px]">
+          <Image
+            src="/images/productsdetails/iphone_blue.png"
+            alt="Iphone image"
+            fill
+            className={`object-contain rounded p-10 border shadow-xs border-gray-200 `}
+          />
+        </div>
 
         {/* Product Details Section */}
         <div className="p-5">
@@ -94,6 +102,6 @@ export default function ProductHomePage() {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
