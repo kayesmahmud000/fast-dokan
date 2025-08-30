@@ -73,192 +73,20 @@ export default function ProductDetailsContents() {
           ))}
         </div>
 
-        <div className="flex flex-col gap-3">
-          <h1 className="font-semibold text-2xl md:text-[2.2rem]">
-            Description
-          </h1>
-          <div className="p-4 border-gray-200 border rounded-2xl flex flex-col gap-3">
-            <div className="grid gap-3">
-              <h2 className="text-blue-500 text-xl font-semibold md:text-2xl">
-                iPhone 16e
-              </h2>
-              <p className="text-sm md:text-md pb-4 border-b border-gray-300">
-                Introducing Apple's iPhone 16e, the Newest Member of the
-                Game-Changer Lineup It is powered by the fast and efficient A18
-                chip and also includes Apple&apos;s first C1 modem for efficient
-                5G connectivity. The iPhone 16e features sleek black and white
-                matte colorways with a staple flat aluminum mid-frame and glass
-                back. The Super Retina XDR OLED display size is 6.1 inches, with
-                a resolution of 2532x1170 pixels, HDR, and a peak brightness of
-                1200 nits.The 48MP Fusion camera features optical image
-                stabilization and Hybrid Focus Pixels, as well as a 12MP 2x
-                telephoto option, and the 12MP front camera has autofocus and
-                automated picture stabilization. The iphone 16e has a battery
-                life of up to 26 hours for video and 90 hours for audio, and it
-                supports Type-C fast charging and wireless charging. Apple
-                Intelligence capabilities include Writing Tools, Notification
-                Summary, Image Playground, Genmoji, and Visual Intelligence,
-                which includes text summarization, translation, and phone number
-                and email address identification. With 5G connectivity, Wi-Fi 6,
-                Bluetooth 5.3, and NFC support, the iPhone 16e is an innovative
-                yet affordable smartphone update option.
-              </p>
-            </div>
-            <div className="grid gap-3">
-              <h2 className="text-blue-500 text-xl font-semibold md:text-2xl">
-                Processor
-              </h2>
-              <div className="grid text-sm md:text-md pb-4 border-b border-gray-300">
-                <div className="grid-cols-2 grid md:grid-cols-3 md:pr-60">
-                  <span className="w-fit">Chipset</span>
-                  <span>A18 chip</span>
-                </div>
-                <div className="grid-cols-2 grid md:grid-cols-3 md:pr-60">
-                  <span className="w-fit">CPU Type</span>
-                  <span>
-                    Super Retina XDR display {"all‑screen"} OLED display
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {filter == "Specification" || filter == null ? (
+          <Specification />
+        ) : (
+          <></>
+        )}
 
-        <div className="flex flex-col gap-3">
-          <h1 className="font-semibold text-2xl md:text-[2.2rem]">
-            Description
-          </h1>
-          <div className="p-4 border-gray-200 border rounded-2xl flex flex-col gap-3">
-            <div className="grid gap-3">
-              <h2 className="text-blue-500 text-xl font-semibold md:text-2xl">
-                iPhone 16e
-              </h2>
-              <p className="text-sm md:text-md pb-4 border-b border-gray-300">
-                Introducing Apple's iPhone 16e, the Newest Member of the
-                Game-Changer Lineup It is powered by the fast and efficient A18
-                chip and also includes Apple&apos;s first C1 modem for efficient
-                5G connectivity. The iPhone 16e features sleek black and white
-                matte colorways with a staple flat aluminum mid-frame and glass
-                back. The Super Retina XDR OLED display size is 6.1 inches, with
-                a resolution of 2532x1170 pixels, HDR, and a peak brightness of
-                1200 nits.The 48MP Fusion camera features optical image
-                stabilization and Hybrid Focus Pixels, as well as a 12MP 2x
-                telephoto option, and the 12MP front camera has autofocus and
-                automated picture stabilization. The iphone 16e has a battery
-                life of up to 26 hours for video and 90 hours for audio, and it
-                supports Type-C fast charging and wireless charging. Apple
-                Intelligence capabilities include Writing Tools, Notification
-                Summary, Image Playground, Genmoji, and Visual Intelligence,
-                which includes text summarization, translation, and phone number
-                and email address identification. With 5G connectivity, Wi-Fi 6,
-                Bluetooth 5.3, and NFC support, the iPhone 16e is an innovative
-                yet affordable smartphone update option.
-              </p>
-            </div>
-            <div className="grid gap-3">
-              <h2 className="text-blue-500 text-xl font-semibold md:text-2xl">
-                New Bionic A18 Chip
-              </h2>
-              <p className="text-sm md:text-md pb-4 border-b border-gray-300">
-                The A18 Bionic chip found in the iPhone 16e is a significant
-                advancement in mobile processing technology. Built on a
-                cutting-edge 3-nanometer technology, the A18 Bionic chip
-                improves performance and power efficiency, making it one of
-                Apple's most powerful chips to date. It has a 6-core CPU with
-                two high-performance cores and four high-efficiency cores,
-                resulting in seamless multitasking and unsurpassed
-                responsiveness. The processor also includes a 5-core GPU, which
-                ensures amazing graphics and smooth gaming for even the most
-                demanding mobile games. The A18 Bionic processor also has a
-                next-generation 16-core Neural Engine, which can do up to 15.8
-                trillion operations per second, allowing for advanced machine
-                learning activities and intelligent features. With increased
-                energy efficiency,
-              </p>
-            </div>
-          </div>
-        </div>
+        {filter == "Description" || filter == null ? <Description /> : <></>}
 
-        <div className="flex flex-col gap-3">
-          <div className="flex justify-between">
-            <h1 className="font-semibold text-2xl md:text-[2.2rem]">Reviews</h1>
-            <Link href={""} className="text-gray-500 hover:underline">
-              View All
-            </Link>
-          </div>
-          <div className="p-4 border-gray-200 border rounded-2xl flex flex-col gap-3">
-            <ReviewCard />
-          </div>
-        </div>
+        {filter == "Reviews" || filter == null ? <Reviews /> : <></>}
 
-        <div className="flex flex-col gap-3">
-          <h1 className="font-semibold text-2xl md:text-[2.2rem]">Questions</h1>
-          <div className="p-4 border-gray-200 border rounded-2xl flex flex-col gap-3">
-            <div className="join join-vertical bg-base-100">
-              <div className="collapse collapse-arrow join-item border-base-300 border">
-                <input type="radio" name="my-accordion-4" defaultChecked />
-                <div className="collapse-title font-semibold">
-                  Is there a free trial available?
-                </div>
-                <div className="collapse-content text-sm">
-                  Yes, you can try us for free for 30 days. If you want, we’ll
-                  provide you with a free, personalized 30-minute onboarding
-                  call to get you up and running as soon as possible.
-                </div>
-              </div>
-              <div className="collapse collapse-arrow join-item border-base-300 border">
-                <input type="radio" name="my-accordion-4" />
-                <div className="collapse-title font-semibold">
-                  Is there a free trial available?
-                </div>
-                <div className="collapse-content text-sm">
-                  Yes, you can try us for free for 30 days. If you want,
-                  we&apos;ll provide you with a free, personalized 30-minute
-                  onboarding call to get you up and running as soon as possible.
-                </div>
-              </div>
-              <div className="collapse collapse-arrow join-item border-base-300 border">
-                <input type="radio" name="my-accordion-4" />
-                <div className="collapse-title font-semibold">
-                  Is there a free trial available?
-                </div>
-                <div className="collapse-content text-sm">
-                  Yes, you can try us for free for 30 days. If you want,
-                  we&apos;ll provide you with a free, personalized 30-minute
-                  onboarding call to get you up and running as soon as possible.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {filter == "Questions" || filter == null ? <Questions /> : <></>}
 
-        <div className="flex flex-col gap-3">
-          <h1 className="font-semibold text-2xl md:text-[2.2rem]">Questions</h1>
-          <div className="p-4 w-full relative border-gray-200 border rounded-2xl flex flex-col gap-3">
-            <Image
-              src="/images/productsdetails/product_video.png"
-              alt="product_video.png"
-              width={0}
-              height={0}
-              sizes="100vw"
-              style={{ width: "100vw", height: "auto" }}
-              className="rounded-2xl"
-            />
+        {filter == "Video" || filter == null ? <Video /> : <></>}
 
-            <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out hover:scale-110">
-              <div className="relative cursor-pointer">
-                {/* The play icon as an inline SVG with an orange background */}
-                <FaPlayCircle className=" text-7xl bg-orange-500 rounded-full invert" />
-
-                <div className="absolute top-0 left-0 inset-0 z-[1] [animation:pulse_2s_ease-in-out_100ms_infinite] rounded-full shadow-[0_0_30px_20px_rgba(0,0,0,0.42)] shadow-blue-500" />
-                <div className="absolute top-0 left-0 inset-0 z-[2] animate-pulse rounded-full shadow-[0_0_30px_20px_rgba(0,0,0,0.22)] shadow-blue-500" />
-              </div>
-            </div>
-            {/* <div className="absolute w-full justify-center left-1/2 top-1/2 items-center">
-              <div className="absolute top-0 left-0 inset-2 animate-pulse rounded-full shadow-2xl shadow-orange-500" />
-            </div> */}
-          </div>
-        </div>
         {/* {productContent
           .filter((item) => filter === null || item.category === filter)
           .map((item) => (
@@ -276,6 +104,219 @@ export default function ProductDetailsContents() {
     </section>
   );
 }
+
+const Specification = () => {
+  return (
+    <div className="flex flex-col gap-3">
+      <h1 className="font-semibold text-2xl md:text-[2.2rem]">Specification</h1>
+      <div className="p-4 border-gray-200 border rounded-2xl flex flex-col gap-3">
+        <div className="grid gap-3">
+          <h2 className="text-blue-500 text-xl font-semibold md:text-2xl">
+            Display
+          </h2>
+          <div className="grid text-sm md:text-md pb-4 ">
+            <div className="grid-cols-2 grid md:grid-cols-3 md:pr-60 border-b border-gray-300 *:py-2">
+              <span className="w-fit">Size</span>
+              <span>6.1‑inch (diagonal)</span>
+            </div>
+            <div className="grid-cols-2 grid md:grid-cols-3 md:pr-60 border-b border-gray-300 *:py-2">
+              <span className="w-fit">Type</span>
+              <span>Super Retina XDR display all‑screen OLED display</span>
+            </div>
+            <div className="grid-cols-2 grid md:grid-cols-3 md:pr-60 border-b border-gray-300 *:py-2">
+              <span className="w-fit">Resolution</span>
+              <span>2532‑by‑1170-pixel resolution at 460 ppi</span>
+            </div>
+            <div className="grid-cols-2 grid md:grid-cols-3 md:pr-60 border-b border-gray-300 *:py-2">
+              <span className="w-fit">Brightness</span>
+              <span>
+                800 nits max brightness (typical); 1200 nits peak brightness
+                (HDR)
+              </span>
+            </div>
+            <div className="grid-cols-2 grid md:grid-cols-3 md:pr-60 border-b border-gray-300 *:py-2">
+              <span className="w-fit">Features</span>
+              <span>
+                HDR display <br />
+                True Tone <br />
+                Wide color (P3) <br />
+                Haptic Touch <br />
+                2,000,000:1 contrast ratio (typical) <br />
+                800 nits max brightness (typical); 1200 nits peak brightness
+                (HDR) <br />
+                Fingerprint-resistant oleophobic coating <br />
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid gap-3">
+          <h2 className="text-blue-500 text-xl font-semibold md:text-2xl">
+            Processor
+          </h2>
+          <div className="grid text-sm md:text-md pb-4 ">
+            <div className="grid-cols-2 grid md:grid-cols-3 md:pr-60 border-b border-gray-300 *:py-2">
+              <span className="w-fit">Chipset</span>
+              <span>A18 chip</span>
+            </div>
+            <div className="grid-cols-2 grid md:grid-cols-3 md:pr-60 border-b border-gray-300 *:py-2">
+              <span className="w-fit">CPU Type</span>
+              <span>Super Retina XDR display {"all‑screen"} OLED display</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Description = () => {
+  return (
+    <div className="flex flex-col gap-3">
+      <h1 className="font-semibold text-2xl md:text-[2.2rem]">Description</h1>
+      <div className="p-4 border-gray-200 border rounded-2xl flex flex-col gap-3">
+        <div className="grid gap-3">
+          <h2 className="text-blue-500 text-xl font-semibold md:text-2xl">
+            iPhone 16e
+          </h2>
+          <p className="text-sm md:text-md pb-4 border-b border-gray-300">
+            Introducing Apple's iPhone 16e, the Newest Member of the
+            Game-Changer Lineup It is powered by the fast and efficient A18 chip
+            and also includes Apple&apos;s first C1 modem for efficient 5G
+            connectivity. The iPhone 16e features sleek black and white matte
+            colorways with a staple flat aluminum mid-frame and glass back. The
+            Super Retina XDR OLED display size is 6.1 inches, with a resolution
+            of 2532x1170 pixels, HDR, and a peak brightness of 1200 nits.The
+            48MP Fusion camera features optical image stabilization and Hybrid
+            Focus Pixels, as well as a 12MP 2x telephoto option, and the 12MP
+            front camera has autofocus and automated picture stabilization. The
+            iphone 16e has a battery life of up to 26 hours for video and 90
+            hours for audio, and it supports Type-C fast charging and wireless
+            charging. Apple Intelligence capabilities include Writing Tools,
+            Notification Summary, Image Playground, Genmoji, and Visual
+            Intelligence, which includes text summarization, translation, and
+            phone number and email address identification. With 5G connectivity,
+            Wi-Fi 6, Bluetooth 5.3, and NFC support, the iPhone 16e is an
+            innovative yet affordable smartphone update option.
+          </p>
+        </div>
+        <div className="grid gap-3">
+          <h2 className="text-blue-500 text-xl font-semibold md:text-2xl">
+            New Bionic A18 Chip
+          </h2>
+          <p className="text-sm md:text-md pb-4 border-b border-gray-300">
+            The A18 Bionic chip found in the iPhone 16e is a significant
+            advancement in mobile processing technology. Built on a cutting-edge
+            3-nanometer technology, the A18 Bionic chip improves performance and
+            power efficiency, making it one of Apple's most powerful chips to
+            date. It has a 6-core CPU with two high-performance cores and four
+            high-efficiency cores, resulting in seamless multitasking and
+            unsurpassed responsiveness. The processor also includes a 5-core
+            GPU, which ensures amazing graphics and smooth gaming for even the
+            most demanding mobile games. The A18 Bionic processor also has a
+            next-generation 16-core Neural Engine, which can do up to 15.8
+            trillion operations per second, allowing for advanced machine
+            learning activities and intelligent features. With increased energy
+            efficiency,
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Questions = () => {
+  return (
+    <div className="flex flex-col gap-3">
+      <h1 className="font-semibold text-2xl md:text-[2.2rem]">Questions</h1>
+      <div className="p-4 border-gray-200 border rounded-2xl flex flex-col gap-3">
+        <div className="join join-vertical bg-base-100">
+          <div className="collapse collapse-arrow join-item border-base-300 border">
+            <input type="radio" name="my-accordion-4" defaultChecked />
+            <div className="collapse-title font-semibold">
+              Is there a free trial available?
+            </div>
+            <div className="collapse-content text-sm">
+              Yes, you can try us for free for 30 days. If you want, we’ll
+              provide you with a free, personalized 30-minute onboarding call to
+              get you up and running as soon as possible.
+            </div>
+          </div>
+          <div className="collapse collapse-arrow join-item border-base-300 border">
+            <input type="radio" name="my-accordion-4" />
+            <div className="collapse-title font-semibold">
+              Is there a free trial available?
+            </div>
+            <div className="collapse-content text-sm">
+              Yes, you can try us for free for 30 days. If you want, we&apos;ll
+              provide you with a free, personalized 30-minute onboarding call to
+              get you up and running as soon as possible.
+            </div>
+          </div>
+          <div className="collapse collapse-arrow join-item border-base-300 border">
+            <input type="radio" name="my-accordion-4" />
+            <div className="collapse-title font-semibold">
+              Is there a free trial available?
+            </div>
+            <div className="collapse-content text-sm">
+              Yes, you can try us for free for 30 days. If you want, we&apos;ll
+              provide you with a free, personalized 30-minute onboarding call to
+              get you up and running as soon as possible.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Reviews = () => {
+  return (
+    <div className="flex flex-col gap-3">
+      <div className="flex justify-between">
+        <h1 className="font-semibold text-2xl md:text-[2.2rem]">Reviews</h1>
+        <Link href={""} className="text-gray-500 hover:underline">
+          View All
+        </Link>
+      </div>
+      <div className="p-4 border-gray-200 border rounded-2xl flex flex-col gap-3">
+        <ReviewCard />
+      </div>
+    </div>
+  );
+};
+
+const Video = () => {
+  return (
+    <div className="flex flex-col gap-3">
+      <h1 className="font-semibold text-2xl md:text-[2.2rem]">Video</h1>
+      <div className="p-4 w-full relative border-gray-200 border rounded-2xl flex flex-col gap-3">
+        <Image
+          src="/images/productsdetails/product_video.png"
+          alt="product_video.png"
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: "100vw", height: "auto" }}
+          className="rounded-2xl"
+        />
+
+        <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out hover:scale-110">
+          <div className="relative cursor-pointer">
+            {/* The play icon as an inline SVG with an orange background */}
+            <FaPlayCircle className=" text-7xl bg-orange-500 rounded-full invert" />
+
+            <div className="absolute top-0 left-0 inset-0 z-[1] [animation:pulse_2s_ease-in-out_100ms_infinite] rounded-full shadow-[0_0_30px_20px_rgba(0,0,0,0.42)] shadow-blue-500" />
+            <div className="absolute top-0 left-0 inset-0 z-[2] animate-pulse rounded-full shadow-[0_0_30px_20px_rgba(0,0,0,0.22)] shadow-blue-500" />
+          </div>
+        </div>
+        {/* <div className="absolute w-full justify-center left-1/2 top-1/2 items-center">
+              <div className="absolute top-0 left-0 inset-2 animate-pulse rounded-full shadow-2xl shadow-orange-500" />
+            </div> */}
+      </div>
+    </div>
+  );
+};
 
 const ReviewCard = () => {
   const reviews = [
