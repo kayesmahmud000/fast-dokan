@@ -44,11 +44,11 @@ const EmblaCarousel = ({ slides, options }) => {
         <div className="embla__container flex">
           {slides.map((e, index) => (
             <div
-              className="embla__slide flex-[0_0_80%] sm:flex-[0_0_40%] lg:flex-[0_0_25%] px-2 p-1 py-3"
+              className="embla__slide flex-[0_0_auto] px-2 p-1 py-3"
               key={index + 2}
             >
-              <div className=" bg-white rounded-xl border-blue-500 border h-40 flex-col flex items-center justify-center">
-                <div className="w-30 h-30 relative">
+              <div className="bg-white rounded-xl border-blue-500 border h-[190px] w-[130px] flex flex-col items-center justify-center">
+                <div className="relative w-[80px] h-[80px]">
                   <Image
                     src={e.src}
                     alt="image"
@@ -56,8 +56,8 @@ const EmblaCarousel = ({ slides, options }) => {
                     style={{ objectFit: "contain" }}
                   />
                 </div>
-                <h5 className="text-black text-xl font-bold">{e.name}</h5>
-                <h5 className="text-blue-500">{e.items} items</h5>
+                <h5 className="text-black text-base font-bold">{e.name}</h5>
+                <h5 className="text-blue-500 text-sm">{e.items} items</h5>
               </div>
             </div>
           ))}
