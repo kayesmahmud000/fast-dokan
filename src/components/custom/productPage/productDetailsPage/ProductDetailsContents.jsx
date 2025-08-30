@@ -1,8 +1,9 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
-import { FaStar } from "react-icons/fa";
+import { FaPlayCircle, FaStar } from "react-icons/fa";
 
 export default function ProductDetailsContents() {
   const productContent = [
@@ -58,9 +59,9 @@ export default function ProductDetailsContents() {
 
   return (
     <section className="py-10">
-      <div className="baseContainer grid gap-25">
+      <div className="baseContainer grid gap-15 overflow-hidden">
         {/* Filter buttons container */}
-        <div className="flex flex-wrap justify-center gap-4 mb-8">
+        <div className="flex flex-wrap justify-center  border-t-gray-200 border-t pt-10 md:justify-start gap-1 md:gap-4 md:mb-8">
           {categories.map((category) => (
             <button
               key={category}
@@ -76,7 +77,7 @@ export default function ProductDetailsContents() {
           <h1 className="font-semibold text-2xl md:text-[2.2rem]">
             Description
           </h1>
-          <div className="p-4 border-gray-300 border rounded-2xl flex flex-col gap-3">
+          <div className="p-4 border-gray-200 border rounded-2xl flex flex-col gap-3">
             <div className="grid gap-3">
               <h2 className="text-blue-500 text-xl font-semibold md:text-2xl">
                 iPhone 16e
@@ -86,7 +87,7 @@ export default function ProductDetailsContents() {
                 Game-Changer Lineup It is powered by the fast and efficient A18
                 chip and also includes Apple&apos;s first C1 modem for efficient
                 5G connectivity. The iPhone 16e features sleek black and white
-                matte colorways with a staple flat aluminum mid-frame and glass
+                matte colorways with a staple flat aluminum mid-frame and glass
                 back. The Super Retina XDR OLED display size is 6.1 inches, with
                 a resolution of 2532x1170 pixels, HDR, and a peak brightness of
                 1200 nits.The 48MP Fusion camera features optical image
@@ -134,15 +135,77 @@ export default function ProductDetailsContents() {
               View All
             </Link>
           </div>
-          <div className="p-4 border-gray-300 border rounded-2xl flex flex-col gap-3">
+          <div className="p-4 border-gray-200 border rounded-2xl flex flex-col gap-3">
             <ReviewCard />
           </div>
         </div>
 
         <div className="flex flex-col gap-3">
           <h1 className="font-semibold text-2xl md:text-[2.2rem]">Questions</h1>
-          <div className="p-4 border-gray-300 border rounded-2xl flex flex-col gap-3">
-            <ReviewCard />
+          <div className="p-4 border-gray-200 border rounded-2xl flex flex-col gap-3">
+            <div className="join join-vertical bg-base-100">
+              <div className="collapse collapse-arrow join-item border-base-300 border">
+                <input type="radio" name="my-accordion-4" defaultChecked />
+                <div className="collapse-title font-semibold">
+                  Is there a free trial available?
+                </div>
+                <div className="collapse-content text-sm">
+                  Yes, you can try us for free for 30 days. If you want, we’ll
+                  provide you with a free, personalized 30-minute onboarding
+                  call to get you up and running as soon as possible.
+                </div>
+              </div>
+              <div className="collapse collapse-arrow join-item border-base-300 border">
+                <input type="radio" name="my-accordion-4" />
+                <div className="collapse-title font-semibold">
+                  Is there a free trial available?
+                </div>
+                <div className="collapse-content text-sm">
+                  Yes, you can try us for free for 30 days. If you want,
+                  we&apos;ll provide you with a free, personalized 30-minute
+                  onboarding call to get you up and running as soon as possible.
+                </div>
+              </div>
+              <div className="collapse collapse-arrow join-item border-base-300 border">
+                <input type="radio" name="my-accordion-4" />
+                <div className="collapse-title font-semibold">
+                  Is there a free trial available?
+                </div>
+                <div className="collapse-content text-sm">
+                  Yes, you can try us for free for 30 days. If you want,
+                  we&apos;ll provide you with a free, personalized 30-minute
+                  onboarding call to get you up and running as soon as possible.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <h1 className="font-semibold text-2xl md:text-[2.2rem]">Questions</h1>
+          <div className="p-4 w-full relative border-gray-200 border rounded-2xl flex flex-col gap-3">
+            <Image
+              src="/images/productsdetails/product_video.png"
+              alt="product_video.png"
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: "100vw", height: "auto" }}
+              className="rounded-2xl"
+            />
+
+            <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out hover:scale-110">
+              <div className="relative cursor-pointer">
+                {/* The play icon as an inline SVG with an orange background */}
+                <FaPlayCircle className=" text-7xl bg-orange-500 rounded-full invert" />
+
+                <div className="absolute top-0 left-0 inset-0 z-[1] [animation:pulse_2s_ease-in-out_100ms_infinite] rounded-full shadow-[0_0_30px_20px_rgba(0,0,0,0.42)] shadow-blue-500" />
+                <div className="absolute top-0 left-0 inset-0 z-[2] animate-pulse rounded-full shadow-[0_0_30px_20px_rgba(0,0,0,0.22)] shadow-blue-500" />
+              </div>
+            </div>
+            {/* <div className="absolute w-full justify-center left-1/2 top-1/2 items-center">
+              <div className="absolute top-0 left-0 inset-2 animate-pulse rounded-full shadow-2xl shadow-orange-500" />
+            </div> */}
           </div>
         </div>
         {/* {productContent
@@ -250,24 +313,24 @@ const ReviewCard = () => {
           <p className="text-gray-700 leading-relaxed mb-6">
             &ldquo;{review.comment}&rdquo;
           </p>
-          <div className="flex items-center text-gray-700 text-sm space-x-4 mt-auto">
+          <div className="flex items-center justify-between text-gray-700 text-sm md:space-x-4 mt-auto">
             <Link
               href={""}
-              className="flex items-center justify-center space-x-1 p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+              className="flex items-center justify-center md:space-x-1  md:p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
             >
               <AiOutlineLike className="text-lg" />
               <span>Helpful!</span>
             </Link>
             <Link
               href={""}
-              className="flex items-center justify-center space-x-1 p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+              className="flex items-center justify-center md:space-x-1  md:p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
             >
               <AiOutlineDislike className="text-lg" />
               <span>Not Helpful!</span>
             </Link>
             <Link
               href={""}
-              className="flex items-center space-x-1 p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+              className="flex items-center md:space-x-1  md:p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
             >
               <span>Reply</span>
             </Link>
