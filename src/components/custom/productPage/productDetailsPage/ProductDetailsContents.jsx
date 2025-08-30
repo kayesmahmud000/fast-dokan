@@ -1,5 +1,8 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
+import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
+import { FaStar } from "react-icons/fa";
 
 export default function ProductDetailsContents() {
   const productContent = [
@@ -55,7 +58,7 @@ export default function ProductDetailsContents() {
 
   return (
     <section className="py-10">
-      <div className="baseContainer">
+      <div className="baseContainer grid gap-25">
         {/* Filter buttons container */}
         <div className="flex flex-wrap justify-center gap-4 mb-8">
           {categories.map((category) => (
@@ -78,7 +81,7 @@ export default function ProductDetailsContents() {
               <h2 className="text-blue-500 text-xl font-semibold md:text-2xl">
                 iPhone 16e
               </h2>
-              <p className="text-sm pb-1 border-b border-gray-300">
+              <p className="text-sm md:text-md pb-4 border-b border-gray-300">
                 Introducing Apple's iPhone 16e, the Newest Member of the
                 Game-Changer Lineup It is powered by the fast and efficient A18
                 chip and also includes Apple&apos;s first C1 modem for efficient
@@ -104,7 +107,7 @@ export default function ProductDetailsContents() {
               <h2 className="text-blue-500 text-xl font-semibold md:text-2xl">
                 New Bionic A18 Chip
               </h2>
-              <p className="text-sm pb-1 border-b border-gray-300">
+              <p className="text-sm md:text-md pb-4 border-b border-gray-300">
                 The A18 Bionic chip found in the iPhone 16e is a significant
                 advancement in mobile processing technology. Built on a
                 cutting-edge 3-nanometer technology, the A18 Bionic chip
@@ -121,6 +124,18 @@ export default function ProductDetailsContents() {
                 energy efficiency,
               </p>
             </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <div className="flex justify-between">
+            <h1 className="font-semibold text-2xl md:text-[2.2rem]">Reviews</h1>
+            <Link href={""} className="text-gray-500 hover:underline">
+              View All
+            </Link>
+          </div>
+          <div className="p-4 border-gray-300 border rounded-2xl flex flex-col gap-3">
+            <ReviewCard />
           </div>
         </div>
         {/* {productContent
@@ -140,3 +155,118 @@ export default function ProductDetailsContents() {
     </section>
   );
 }
+
+const ReviewCard = () => {
+  const reviews = [
+    {
+      id: 1,
+      name: "Jenny Wilson",
+      title: "Freelance React Developer",
+      avatar: "/images/productsdetails/jamal.png",
+      rating: 5,
+      comment:
+        "You made it so simple. My new site is so much faster and easier to work with than my old site. I just choose the page, make the change.",
+    },
+    {
+      id: 2,
+      name: "Jane Cooper",
+      title: "Freelance React Developer",
+      avatar: "/images/productsdetails/kamal.png",
+      rating: 5,
+      comment:
+        "You made it so simple. My new site is so much faster and easier to work with than my old site. I just choose the page, make the change.",
+    },
+    {
+      id: 3,
+      name: "Darlene Robertson",
+      title: "Freelance React Developer",
+      avatar: "/images/productsdetails/kuddus.png",
+      rating: 5,
+      comment:
+        "You made it so simple. My new site is so much faster and easier to work with than my old site. I just choose the page, make the change.",
+    },
+  ];
+
+  const StarIcon = ({ fill }) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill={fill}
+      className="w-5 h-5"
+    >
+      <path
+        fillRule="evenodd"
+        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.412c1.165.087 1.647 1.54 
+      .746 2.373l-4.117 3.52 1.255 5.27c.271 1.136-.964 2.033-1.96 1.425L12 18.336l-4.502 2.722c-.996.608-2.231-.288-1.96-1.425l1.255-5.27-4.117-3.52c-.901-.833-.419-2.285.746-2.373l5.404-.412 2.082-5.007z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+
+  const renderStars = (rating) => {
+    const stars = [];
+    for (let i = 0; i < 5; i++) {
+      stars.push(
+        <StarIcon key={i} fill={i < rating ? "#F59E0B" : "#D1D5DB"} />
+      );
+    }
+    return stars;
+  };
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl">
+      {reviews.map((review) => (
+        <div
+          key={review.id}
+          className="flex flex-col p-6 bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+        >
+          <div className="flex items-center space-x-4 mb-4">
+            <div className="relative w-12 h-12 rounded-full overflow-hidden">
+              <img
+                src={review.avatar}
+                alt={`${review.name}'s avatar`}
+                width="48"
+                height="48"
+                className="rounded-full"
+              />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900">
+                {review.name}
+              </h3>
+              <p className="text-sm text-gray-700">{review.title}</p>
+            </div>
+          </div>
+          <div className="flex items-center mb-4">
+            {renderStars(review.rating)}
+          </div>
+          <p className="text-gray-700 leading-relaxed mb-6">
+            &ldquo;{review.comment}&rdquo;
+          </p>
+          <div className="flex items-center text-gray-700 text-sm space-x-4 mt-auto">
+            <Link
+              href={""}
+              className="flex items-center justify-center space-x-1 p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+            >
+              <AiOutlineLike className="text-lg" />
+              <span>Helpful!</span>
+            </Link>
+            <Link
+              href={""}
+              className="flex items-center justify-center space-x-1 p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+            >
+              <AiOutlineDislike className="text-lg" />
+              <span>Not Helpful!</span>
+            </Link>
+            <Link
+              href={""}
+              className="flex items-center space-x-1 p-2 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+            >
+              <span>Reply</span>
+            </Link>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
