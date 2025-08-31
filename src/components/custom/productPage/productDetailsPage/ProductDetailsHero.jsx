@@ -3,7 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import { GiShoppingCart } from "react-icons/gi";
 import { FaStar } from "react-icons/fa";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const product = {
   name: "iPhone 16e",
@@ -27,29 +29,25 @@ const product = {
   ],
   colors: [
     {
-      name: "White",
-      hex: "#EAEAEA",
-      mainImage: "/images/productdetails/",
-      thumbnailImage: "https://placehold.co/80x80/EAEAEA/202020?text=White",
+      name: "Pink",
+      hex: "#FFC0CB",
+      mainImage: "/images/productsdetails/iphone_blue.png",
     },
     {
       name: "Black",
       hex: "#202020",
-      mainImage: "/images/productdetails/",
-      thumbnailImage: "https://placehold.co/80x80/202020/EAEAEA?text=Black",
+      mainImage: "/images/productsdetails/iphone_black.png",
     },
 
     {
-      name: "Blue",
-      hex: "#B297E5",
-      mainImage: "/images/productdetails/",
-      thumbnailImage: "https://placehold.co/80x80/B297E5/202020?text=Blue",
+      name: "White",
+      hex: "#EAEAEA",
+      mainImage: "/images/productsdetails/iphone_pink.png",
     },
     {
-      name: "Pink",
-      hex: "#FFC0CB",
-      mainImage: "/images/productdetails/",
-      thumbnailImage: "/images/productdetails/",
+      name: "Blue",
+      hex: "#B297E5",
+      mainImage: "/images/productsdetails/iphone_white.png",
     },
   ],
   originalPrice: "1,399",
@@ -85,27 +83,27 @@ export default function ProductDetailsHero() {
             </li>
           </ul>
         </nav>
-        <div className="flex flex-col md:flex-row md:items-start md:space-x-12">
-          {/* Left Column: Product Image Gallery */}
+        <div className="flex flex-col md:flex-row md:items-start md:space-x-2">
           <div className="w-full md:w-1/2 flex flex-col items-center">
-            {/* Main Product Image */}
-            <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden bg-white shadow-xl">
-              <img
+            <div className="relative w-4/5 aspect-[1] rounded-3xl overflow-hidden bg-white">
+              <Image
                 src={selectedColor.mainImage}
                 alt={`${product.name} in ${selectedColor.name}`}
-                className="w-full h-full object-cover transition-opacity duration-300 ease-in-out"
+                fill
+                className="w-full h-full object-cover transition-opacity rounded-3xl duration-300 ease-in-out p-4 border border-gray-200"
               />
             </div>
-            {/* Thumbnail Images */}
-            <div className="flex justify-center md:justify-start space-x-3 mt-6 w-full">
-              {product.colors.map((color) => (
-                <div
-                  key={color.name}
-                  onClick={() => setSelectedColor(color)}
-                  className={`
+            <div className="flex justify-center md:justify-start space-x-3 mt-6 w-full md:ml-25">
+              {product.colors
+                .filter((e) => e.name != selectedColor.name)
+                .map((color) => (
+                  <div
+                    key={color.name}
+                    onClick={() => setSelectedColor(color)}
+                    className={`
                     w-16 h-16 sm:w-20 sm:h-20
-                    rounded-2xl overflow-hidden
-                    cursor-pointer
+                    overflow-hidden
+                    cursor-pointer rounded-xl
                     ring-2 ring-offset-2 transition-all duration-200 ease-in-out relative
                     ${
                       selectedColor.name === color.name
@@ -113,101 +111,100 @@ export default function ProductDetailsHero() {
                         : "ring-transparent opacity-80 hover:ring-neutral-300"
                     }
                   `}
-                >
-                  <Image
-                    src={color.thumbnailImage}
-                    alt={`${product.name} in ${color.name}`}
-                    width={0}
-                    height={0}
-                    fill
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))}
+                  >
+                    <Image
+                      src={color.mainImage}
+                      alt={`${product.name} in ${color.name}`}
+                      fill
+                      className="w-full h-full object-cover p-1 rounded-xl border border-gray-200"
+                    />
+                  </div>
+                ))}
             </div>
           </div>
 
-          {/* Right Column: Product Details */}
           <div className="w-full md:w-1/2 mt-8 md:mt-0">
-            {/* Header and Rating */}
             <div className="flex justify-between items-center">
-              <h1 className="text-4xl sm:text-5xl font-extrabold">
+              <h1 className="text-2xl sm:text-3xl font-semibold">
                 {product.name}
               </h1>
               <div className="flex items-center space-x-2 text-neutral-500">
                 <div className="flex space-x-1">
                   {[...Array(5)].map((_, i) => (
-                    <FaStar className="fill-amber-400" />
+                    <FaStar key={`star${i}`} className="fill-amber-400" />
                   ))}
                 </div>
                 <span className="text-lg font-semibold">{product.rating}</span>
               </div>
             </div>
 
-            {/* Tagline */}
-            <p className="mt-2 text-lg text-neutral-500">{product.tagline}</p>
+            <p className="mt-2 text-md">{product.tagline}</p>
 
-            {/* Key Features */}
             <div className="mt-8">
-              <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
-              <ul className="space-y-3 text-neutral-600">
+              <h2 className="text-2xl font-semibold">Key Features</h2>
+              <div className="text-neutral-600">
                 {product.features.map((feature, index) => (
-                  <li key={index} className="flex items-start">
+                  <li
+                    key={`productFeatures${index}`}
+                    className="text-xl list-disc"
+                  >
                     <span className="font-semibold w-24">{feature.label}:</span>
                     <span className="ml-2">{feature.value}</span>
                   </li>
                 ))}
-              </ul>
-            </div>
-
-            {/* Color Selector */}
-            <div className="mt-8">
-              <p className="text-base font-semibold">Color:</p>
-              <div className="flex space-x-2 mt-3">
-                {product.colors.map((color) => (
-                  <button
-                    key={color.name}
-                    onClick={() => setSelectedColor(color)}
-                    className={`
-                      w-10 h-10 rounded-full border-2 transition-all duration-200
-                      ${
-                        selectedColor.name === color.name
-                          ? "border-neutral-900 ring-2 ring-neutral-900 ring-offset-2"
-                          : "border-transparent"
-                      }
-                    `}
-                    style={{ backgroundColor: color.hex }}
-                    aria-label={`Select ${color.name} color`}
-                  />
-                ))}
               </div>
             </div>
 
-            {/* Stock and Favorite */}
+            <div className="mt-8">
+              <p className="text-base font-semibold">Color:</p>
+              <div className="flex space-x-2 mt-3">
+                {product.colors
+                  .filter((e) => e.name != selectedColor.name)
+                  .map((color) => (
+                    <button
+                      key={color.name}
+                      onClick={() => setSelectedColor(color)}
+                      className={`
+                      w-fit border-gray-200 h-10 rounded-2xl px-2 py-.5 transition-all duration-200
+                      ${
+                        selectedColor.name === color.name
+                          ? "border-neutral-900 ring-neutral-900 ring-offset-2 border-2"
+                          : "border-bordergray-100 border"
+                      }
+                    `}
+                      aria-label={`Select ${color.name} color`}
+                    >
+                      {color.name}
+                    </button>
+                  ))}
+              </div>
+            </div>
+
             <div className="flex items-center justify-between mt-8">
-              <span className="text-base font-semibold text-green-600">
+              <span className="text-base font-semibold text-[#28BA3E] bg-[rgba(40,186,62,0.1)] px-4 py-1.5 rounded-full">
                 Stock-{product.stock}
               </span>
-              <button className="flex items-center space-x-2 text-neutral-500 hover:text-red-500 transition-colors">
+              <button className="flex items-center space-x-2 text-neutral-500 hover:text-red-500 transition-colors px-4 py-2 border border-gray-200 rounded-full">
                 <span className="text-sm font-medium">Favorite</span>
-                <svg
-                  className="w-5 h-5"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5A5.5 5.5 0 017.5 3c2.45 0 4.24 1.56 5.5 3.39C13.26 4.56 15.05 3 17.5 3a5.5 5.5 0 015.5 5.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                </svg>
+                <div>
+                  <svg
+                    className="w-5 h-5"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5A5.5 5.5 0 017.5 3c2.45 0 4.24 1.56 5.5 3.39C13.26 4.56 15.05 3 17.5 3a5.5 5.5 0 015.5 5.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                  </svg>
+                </div>
               </button>
             </div>
 
-            {/* Price and Action Buttons */}
             <div className="mt-8 flex items-center justify-between">
               <div>
                 <span className="text-2xl text-neutral-400 line-through">
                   ৳{product.originalPrice}
                 </span>
-                <span className="ml-2 text-sm text-red-500 font-semibold">
+                <span className="ml-2 text-sm text-blue-500 bg-blue-50 p-1 font-semibold">
                   -{product.discount}
                 </span>
                 <p className="text-4xl font-extrabold text-neutral-900 mt-2">
@@ -215,11 +212,13 @@ export default function ProductDetailsHero() {
                 </p>
               </div>
               <div className="flex space-x-4">
-                <button className="px-6 py-3 rounded-full border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition-colors duration-200">
+                <button className="flex justify-center items-center gap-2 cursor-pointer px-6 py-3 rounded-full border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition-colors duration-200">
                   Add To Cart
+                  <GiShoppingCart className="text-xl" />
                 </button>
-                <button className="px-8 py-3 rounded-full bg-blue-600 text-white font-semibold shadow-lg hover:bg-blue-700 transition-colors duration-200">
+                <button className="flex justify-center items-center gap-2 cursor-pointer px-8 py-3 rounded-full bg-blue-600 text-white font-semibold shadow-lg hover:bg-blue-700 transition-colors duration-200">
                   Buy Now
+                  <FaArrowRightLong />
                 </button>
               </div>
             </div>
