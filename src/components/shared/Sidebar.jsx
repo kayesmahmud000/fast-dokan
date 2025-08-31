@@ -57,7 +57,7 @@ export function DashboardSidebar() {
   return (
     <div
       className={cn(
-        "mx-auto flex w-full flex-1 flex-col overflow-hidden rounded-md border border-neutral-200 bg-[#F6F6F6] md:flex-row dark:border-neutral-700 dark:bg-neutral-800 h-screen",
+        "mx-auto flex w-full flex-1 flex-col overflow-hidden rounded-md border border-neutral-200 bg-[#F6F6F6] md:flex-row dark:border-neutral-700 dark:bg-neutral-800 md:h-screen",
       )}>
       <Sidebar open={open} setOpen={setOpen} animate={false}>
         <SidebarBody className="justify-between gap-10">
