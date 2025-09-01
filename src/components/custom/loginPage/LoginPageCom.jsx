@@ -112,12 +112,12 @@ export default function LoginPageCom() {
                   type="submit"
                   className="transition-all duration-300 w-full cursor-pointer px-8 py-2 md:py-3 font-semibold bg-blue-600 text-gray-50 hover:bg-blue-500 rounded-full"
                 >
-                  Login{" "}
+                  Login
                 </button>
               </div>
 
               <p className="px-6 text-sm md:text-md pt-2 text-center text-gray-600">
-                Don&apos;t have an account?{" "}
+                Don&apos;t have an account?
                 <Link
                   href={"/register"}
                   type="button"
