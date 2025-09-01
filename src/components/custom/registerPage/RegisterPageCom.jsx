@@ -1,22 +1,36 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CiLock } from "react-icons/ci";
+import { IoIosArrowBack } from "react-icons/io";
 import { IoEyeOutline, IoMailOutline } from "react-icons/io5";
+import { RxPerson } from "react-icons/rx";
 
-export default function LoginPageCom() {
+export default function RegisterPageCom() {
   return (
-    <section className="p-5 md:p-10">
-      <div className="baseContainer grid gap-5 md:gap-10 md:grid-cols-2">
-        <Image
-          src="/images/login/login.png"
-          alt="login image"
-          width={0}
-          height={0}
-          sizes="100vw"
-          style={{ width: "100vw", height: "auto" }}
-          className="object-cover aspect-[9/13] rounded-4xl"
-        />
-        <div className="w-full mx-auto gap-5 flex flex-col max-w-md p-6 rounded-md sm:p-10 border border-gray-200 shadow-xl my-12">
+    <section className="py-5 md:p-5">
+      <div className="baseContainer flex flex-col md:flex-row justify-center items-center gap-5 md:gap-10 md:grid-cols-2">
+        <div className="relative w-1/2 hidden md:block">
+          <Image
+            src="/images/registerlogin/register.png"
+            alt="login image"
+            width={0}
+            height={0}
+            sizes="100vw"
+            // fill
+            style={{ width: "100vw" }}
+            className="aspect-[9/16] h-svh object-cover rounded-4xl"
+          />
+        </div>
+        <div className="flex w-full justify-start md:hidden">
+          <Link
+            href={"/"}
+            className="bg-blue-50 p-2 rounded-full flex w-fit justify-center items-center font-semibold gap-2"
+          >
+            <IoIosArrowBack className="font-semibold" />
+            Go Back
+          </Link>
+        </div>
+        <div className="w-full mx-auto gap-5 flex flex-col h-fit max-w-md p-6 rounded-md sm:p-10 border border-gray-200">
           <div className="flex flex-col gap-5 items-center">
             <Link href="/">
               <Image
@@ -28,22 +42,50 @@ export default function LoginPageCom() {
               ></Image>
             </Link>
             <div className="grid text-center">
-              <h1 className="my-3 text-4xl font-semibold">Welcome back</h1>
-              <p className="text-xl">Please log in to your account</p>
+              <h1 className="my-1 md:my-3 text-3xl md:text-4xl font-semibold">
+                Create Your Account
+              </h1>
+              <p className="text-lg md:text-xl">
+                Please fill in the details below
+              </p>
             </div>
           </div>
-          <form noValidate="" action="" className="space-y-8">
-            <div className="space-y-4">
+          <form noValidate="" action="" className="space-y-6">
+            <div className="space-y-3">
+              <div>
+                <span
+                  htmlFor="name"
+                  className="block mb-2 text-xs md:text-sm font-medium"
+                >
+                  name
+                </span>
+                <label
+                  htmlFor="name"
+                  className="relative flex justify-center items-center gap-2 py-0.5 md:py-2 bg-gray-100 px-4 border border-gray-200 rounded-full"
+                >
+                  <div className="">
+                    <RxPerson className="text-gray-400" />
+                  </div>
+                  <input
+                    required
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Enter Your Name"
+                    className="w-full relative py-2"
+                  />
+                </label>
+              </div>
               <div>
                 <span
                   htmlFor="emailphone"
-                  className="block mb-2 text-sm font-medium"
+                  className="block mb-2 text-xs md:text-sm font-medium"
                 >
                   Email/Phone
                 </span>
                 <label
                   htmlFor="email"
-                  className="relative flex justify-center items-center gap-2 py-2 bg-gray-100 px-4 border border-gray-200 rounded-full"
+                  className="relative flex justify-center items-center gap-2 py-0.5 md:py-2 bg-gray-100 px-4 border border-gray-200 rounded-full"
                 >
                   <div className="">
                     <IoMailOutline className="text-gray-400" />
@@ -61,13 +103,13 @@ export default function LoginPageCom() {
               <div>
                 <span
                   htmlFor="password"
-                  className="block mb-2 text-sm font-medium"
+                  className="block mb-2 text-xs md:text-sm font-medium"
                 >
                   Email/Phone
                 </span>
                 <label
                   htmlFor="password"
-                  className="relative flex justify-center items-center gap-2 py-2 bg-gray-100 px-4 border border-gray-200 rounded-full"
+                  className="relative flex justify-center items-center gap-2 py-0.5 md:py-2 bg-gray-100 px-4 border border-gray-200 rounded-full"
                 >
                   <div className="">
                     <CiLock className="text-gray-400" />
@@ -84,29 +126,29 @@ export default function LoginPageCom() {
                     <IoEyeOutline className="text-gray-700" />
                   </div>
                 </label>
-                <Link href={""} className="flex w-full justify-end">
+                <Link href={""} className="flex w-full text-sm justify-end">
                   Forgot Password?
                 </Link>
               </div>
             </div>
-            <div className="space-y-1">
+            <div className="">
               <div>
                 <button
                   type="submit"
-                  className="transition-all duration-300 w-full cursor-pointer px-8 py-3 font-semibold bg-blue-600 text-gray-50 hover:bg-blue-500 rounded-full"
-                >
-                  Login{" "}
-                </button>
-              </div>
-
-              <p className="px-6 text-md pt-2 text-center text-gray-600">
-                Don&apos;t have an account?{" "}
-                <button
-                  type="button"
-                  className="hover:underline text-blue-600 cursor-pointer"
+                  className="transition-all duration-300 w-full cursor-pointer px-8 py-2 md:py-3 font-semibold bg-blue-600 text-gray-50 hover:bg-blue-500 rounded-full"
                 >
                   Create Account
                 </button>
+              </div>
+
+              <p className="px-6 text-sm md:text-md pt-2 text-center text-gray-600">
+                Already have an account?
+                <Link
+                  href={"/login"}
+                  className="hover:underline text-blue-600 cursor-pointer"
+                >
+                  Login
+                </Link>
                 .
               </p>
 
@@ -121,7 +163,7 @@ export default function LoginPageCom() {
               <div className="flex w-full justify-center gap-6">
                 <Link href={""} className="bg-gray-200 p-2 rounded-full">
                   <Image
-                    src="/images/login/google.png"
+                    src="/images/registerlogin/google.png"
                     alt="google.com image"
                     width={40}
                     height={40}
@@ -130,7 +172,7 @@ export default function LoginPageCom() {
                 </Link>
                 <Link href={""} className="bg-gray-200 p-2 rounded-full">
                   <Image
-                    src="/images/login/facebook.png"
+                    src="/images/registerlogin/facebook.png"
                     alt="facebook.com image"
                     width={40}
                     height={40}

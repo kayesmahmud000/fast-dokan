@@ -1,4 +1,4 @@
-import LoginPageCom from "@/components/custom/login/LoginPageCom";
+import LoginPageCom from "@/components/custom/loginPage/LoginPageCom";
 
 export default function LoginPage() {
   return (
