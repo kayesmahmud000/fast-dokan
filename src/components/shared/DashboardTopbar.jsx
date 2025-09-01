@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 const DashboardTopbar = () => {
     return (
-        <div className='flex   bg-[#F6F6F6] p-1 md:px-10 md:py-9 gap-3 items-center justify-end'>
+        <div className='flex  w-full bg-[#F6F6F6]  md:px-10 md:py-9 gap-3 items-center justify-end'>
             <div className='flex-1/2 hidden lg:flex gap-5  items-center  '>
                <div className='w-2/3 relative'>
                  <Input className='bg-[#007AFF0F] rounded-full  border-[#007AFF0F] pl-8 placeholder:text-[Gray] ' placeholder='Search..'/>
