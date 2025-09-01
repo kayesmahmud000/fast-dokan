@@ -1,5 +1,7 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default;
+}
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -18,3 +20,4 @@ body {
 .baseContainer {
   @apply max-w-7xl mx-auto w-full px-4 md:px-10;
 }
+
