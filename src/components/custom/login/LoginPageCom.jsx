@@ -100,7 +100,7 @@ export default function LoginPageCom() {
               </div>
 
               <p className="px-6 text-md pt-2 text-center text-gray-600">
-                Don’t have an account?{" "}
+                Don&apos;t have an account?{" "}
                 <button
                   type="button"
                   className="hover:underline text-blue-600 cursor-pointer"
@@ -109,6 +109,35 @@ export default function LoginPageCom() {
                 </button>
                 .
               </p>
+
+              <div className="p-6 text-md text-center ">
+                <div className="flex justify-center items-center h-[2px]">
+                  <div className="w-12 bg-gray-200 h-[2px]"></div>
+                  <div className="bg-white px-2 text-gray-300">Or</div>
+                  <div className="w-12 bg-gray-200 h-[2px]"></div>
+                </div>
+              </div>
+
+              <div className="flex w-full justify-center gap-6">
+                <Link href={""} className="bg-gray-200 p-2 rounded-full">
+                  <Image
+                    src="/images/login/google.png"
+                    alt="google.com image"
+                    width={40}
+                    height={40}
+                    className=""
+                  />
+                </Link>
+                <Link href={""} className="bg-gray-200 p-2 rounded-full">
+                  <Image
+                    src="/images/login/facebook.png"
+                    alt="facebook.com image"
+                    width={40}
+                    height={40}
+                    className=""
+                  />
+                </Link>
+              </div>
             </div>
           </form>
         </div>
