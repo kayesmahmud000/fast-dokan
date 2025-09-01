@@ -199,7 +199,7 @@ export default function ProductDetailsHero() {
               </button>
             </div>
 
-            <div className="mt-8 flex items-center justify-between">
+            <div className="mt-8 grid gap-2 md:flex items-center justify-between">
               <div>
                 <span className="text-2xl text-neutral-400 line-through">
                   ৳{product.originalPrice}
@@ -211,7 +211,7 @@ export default function ProductDetailsHero() {
                   ৳{product.currentPrice}
                 </p>
               </div>
-              <div className="flex space-x-4">
+              <div className="grid gap-2 md:flex space-x-4">
                 <button className="flex justify-center items-center gap-2 cursor-pointer px-6 py-3 rounded-full border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition-colors duration-200">
                   Add To Cart
                   <GiShoppingCart className="text-xl" />
