@@ -23,7 +23,7 @@ const data = [
 export default function RetailerPerformance() {
   return (
   <div className="mt-10">
-     <h3 className="text-2xl my-5 font-medium">Sales</h3>
+     <h3 className="text-2xl my-5 font-medium">Retailers</h3>
       <Card className="lg:p-5 max-w-3xl rounded-3xl  border border-gray-100 bg-white/80 backdrop-blur">
       {/* Header */}
       <CardHeader className="flex justify-between items-center pb-4">
