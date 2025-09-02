@@ -24,7 +24,7 @@ const DashboardTopbar = () => {
                     <IoMdNotificationsOutline size={20} />
                 </div>
                 <div className='flex items-center justify-center'>
-                    <Image src='/user.png' width='40' height='40' className='rounded-full  '/>
+                    <Image src='/user.png' width='40' height='40' alt='user' className='rounded-full  '/>
                       <div className='   text-sm'>
         <select
         defaultValue={'Admin User'}
